@@ -15,6 +15,7 @@
     <header>
          <?php
             include "./hero.php";
+            include "./logos.php";
         ?>
     </header>
 
