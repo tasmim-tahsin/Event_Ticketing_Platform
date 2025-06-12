@@ -18,6 +18,11 @@
             include "./logos.php";
         ?>
     </header>
+    <section>
+        <?php
+            include "./upcomingevent.php";
+        ?>
+    </section>
 
     <footer>
         <?php

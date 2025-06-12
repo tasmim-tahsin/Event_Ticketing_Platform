@@ -9,7 +9,7 @@
     <footer class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-8 mx-auto">
         <div class="flex flex-col items-center text-center">
-            <a href="#">
+            <a href="./index.php">
                 <img class="w-auto h-10" src="./images/logo2.png" alt="">
             </a>
 
@@ -23,6 +23,10 @@
                 <a href="#" class="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Privacy </a>
 
                 <a href="#" class="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Cookies </a>
+            </div>
+            <div class="flex flex-col justify-center mt-6 mx-4 gap-4">
+                <h1>We Accepts</h1>
+                <img class="max-w-3xl" src="./images/flemingoo-payment-card.png" alt="" srcset="">
             </div>
 
         </div>

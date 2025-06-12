@@ -28,8 +28,10 @@
            <?php
             include "./carousel.php";
            ?>
-
         </div>
     </div>
+    <?php
+            include "./icons.php";
+           ?>
 </body>
 </html>
