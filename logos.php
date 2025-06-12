@@ -16,7 +16,7 @@
       Trusted by Leading Brands
     </h1>
     <p
-      class="block antialiased font-sans text-xl font-normal leading-relaxed text-inherit mx-auto max-w-5xl !text-gray-500 lg:px-8 mb-10"
+      class="block antialiased font-sans text-xl font-normal leading-relaxed text-inherit mx-auto max-w-5xl lg:px-8 mb-10"
     >
       From innovative startups to Fortune 500 companies, our client list spans a
       spectrum of sectors, each with unique challenges that we've successfully

@@ -15,12 +15,13 @@
     <header>
          <?php
             include "./hero.php";
-            include "./logos.php";
+            
         ?>
     </header>
     <section>
         <?php
             include "./upcomingevent.php";
+            include "./logos.php";
         ?>
     </section>
 

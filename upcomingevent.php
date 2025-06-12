@@ -18,10 +18,10 @@
     <title>Upcoming Events</title>
     <link href="./output.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50">
-    <div class="text-center my-10">
-        <h1 class="text-6xl font-bold">Explore Upcomings!</h1>
-        <h3 class="text-2xl mt-3 text-gray-600">Explore the Universe of Events at Your Fingertips.</h3>
+<body>
+    <div class="text-center my-10 mt-10 mb-6">
+        <h1 class="text-5xl font-bold">Explore Upcomings!</h1>
+        <h3 class="text-xl mt-3 text-gray-600">Explore the Universe of Events at Your Fingertips.</h3>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6" id="eventContainer">
