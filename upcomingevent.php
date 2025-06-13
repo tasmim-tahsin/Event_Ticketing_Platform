@@ -20,13 +20,15 @@
 </head>
 <body>
     <div class="text-center my-10 mt-10 mb-6">
-        <h1 class="text-5xl font-bold">Explore Upcomings!</h1>
-        <h3 class="text-xl mt-3 text-gray-600">Explore the Universe of Events at Your Fingertips.</h3>
+        <h1 class="text-3xl font-bold">Explore Live Events!</h1>
+        <h3 class="text-lg mt-3 text-gray-600">Explore the Universe of Events at Your Fingertips.</h3>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6" id="eventContainer">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6 mx-10" id="eventContainer">
         <?php foreach ($events as $index => $row): ?>
-            <div class="max-w-min bg-white rounded-xl shadow-md overflow-hidden <?= $index >= 9 ? 'hidden more-events' : '' ?>">
+          <a href="event-details.php?id=<?= $row['id'] ?>" class="block hover:shadow-lg transition-shadow duration-300">
+  <!-- entire card inside -->
+              <div class="max-w-5xl bg-white rounded-xl shadow-md overflow-hidden <?= $index >= 9 ? 'hidden more-events' : '' ?>">
                 <div class="relative">
                     <?php if (strtolower($row['status']) === 'live'): ?>
                         <span class="absolute top-2 right-2 bg-white text- text-black text-xs font-bold px-2 py-1.5 rounded-lg">🔴 Live Now</span>
@@ -62,6 +64,8 @@
                     </div>
                 </div>
             </div>
+          </a>
+            
         <?php endforeach; ?>
     </div>
 

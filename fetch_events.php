@@ -44,17 +44,22 @@ while ($row = mysqli_fetch_assoc($result)) {
         <span class="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded font-bold p-2">⌛ Upcoming</span>
       <?php endif; ?>
       <?php if ($row['status'] === 'past'): ?>
-        <span class="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded font-bold p-2">🔥 Completed</span>
+        <span class="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded font-bold p-2">🔥 Ended</span>
       <?php endif; ?>
+
       <img src="<?= $row['image'] ?>" class="w-full h-48 object-cover" alt="<?= htmlspecialchars($row['title']) ?>">
       
     </div>
     <div class="p-4">
-      <h2 class="text-lg font-semibold"><?= htmlspecialchars($row['title']) ?></h2>
+      <div class="flex items-center justify-between">
+          <h2 class="text-lg font-semibold"><?= htmlspecialchars($row['title']) ?></h2>
+      <span class=" inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset"><?php echo $row['category']?></span>
+
+      </div>
       <p class="text-sm text-gray-600"><?= htmlspecialchars($row['location']) ?></p>
-      <div class="flex items-center justify-between text-sm text-gray-700 mt-2">
+      <div class=" text-sm text-gray-700 mt-2">
         <span>📅 <?= date("j M, Y", strtotime($row['date'])) ?></span>
-        <span>⏰ <?= date("g:i A", strtotime($row['time'])) ?></span>
+        <span>🕜 <?= date("g:i A", strtotime($row['time'])) ?></span>
       </div>
       <div class="mt-2 text-green-600 font-medium">⭐ Starts from ৳<?= htmlspecialchars($row['price']) ?></div>
     </div>
@@ -63,3 +68,4 @@ while ($row = mysqli_fetch_assoc($result)) {
 
   
 <?php } ?>
+<script src="https://kit.fontawesome.com/c233ed958f.js" crossorigin="anonymous"></script>

@@ -9,10 +9,13 @@ include "./DB/database.php"; ?>
   <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-
+<div class="text-center mt-6 bg-black text-white max-w-6xl mx-auto rounded-md py-3">
+        <h1 class="text-3xl font-bold">Explore Live Events!</h1>
+        <h3 class="text-lg mt-3">Explore the Universe of Events at Your Fingertips.</h3>
+    </div>
 <div class="max-w-6xl mx-auto p-6">
   <!-- Filters -->
-  <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+  <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 bg-white rounded-md p-6 ">
     <input type="text" id="search" placeholder="Search events..."
            class="border border-gray-300 rounded px-4 py-2 w-full md:w-1/3">
     
@@ -31,9 +34,9 @@ include "./DB/database.php"; ?>
     </select>
 
     <div class="flex gap-4 items-center text-sm">
-      <label><input type="radio" name="status" value="" checked> All</label>
-      <label><input type="radio" name="status" value="live"> Live</label>
-      <label><input type="radio" name="status" value="upcoming"> Upcoming</label>
+      <label><input type="radio" name="status" value="" class="radio radio-success" checked> All</label>
+      <label><input type="radio" name="status" value="live" class="radio radio-success"> Live</label>
+      <label><input type="radio" name="status" value="upcoming" class="radio radio-info"> Upcoming</label>
     </div>
   </div>
 
