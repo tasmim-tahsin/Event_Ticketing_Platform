@@ -57,11 +57,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 
       </div>
       <p class="text-sm text-gray-600"><?= htmlspecialchars($row['location']) ?></p>
-      <div class=" text-sm text-gray-700 mt-2">
-        <span>📅 <?= date("j M, Y", strtotime($row['date'])) ?></span>
-        <span>🕜 <?= date("g:i A", strtotime($row['time'])) ?></span>
+      <div class=" flex gap-3 text-sm text-gray-700 mt-2">
+        <span><i class="fa-solid fa-calendar"></i> <?= date("j M, Y", strtotime($row['date'])) ?></span>
+        <span><i class="fa-solid fa-clock"></i> <?= date("g:i A", strtotime($row['time'])) ?></span>
       </div>
-      <div class="mt-2 text-green-600 font-medium">⭐ Starts from ৳<?= htmlspecialchars($row['price']) ?></div>
+      <div class="mt-2 text-green-600 font-medium"> Starts from <i class="fa-solid fa-bangladeshi-taka-sign mx-1"></i><?= htmlspecialchars($row['price']) ?></div>
     </div>
   </div>
 </a>

@@ -49,16 +49,12 @@
                         </div>
                         <div class="flex flex-col gap-1 text-sm text-gray-700">
                             <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 20s6-5.686 6-10a6 6 0 1 0-12 0c0 4.314 6 10 6 10z"/>
-                                </svg>
+                                <i class="fa-solid fa-location-dot" style="color: #74C0FC;"></i>
                                 <span><?= htmlspecialchars($row['location']) ?></span>
                             </div>
                             <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M4 4h12v2H4V4zm0 4h12v2H4V8zm0 4h8v2H4v-2z"/>
-                                </svg>
-                                <span>Price starts from ৳ <?= htmlspecialchars($row['price']) ?></span>
+                                <i class="fa-solid fa-tag" style="color: #74C0FC;"></i>
+                                <span>Price starts from <i class="fa-solid fa-bangladeshi-taka-sign mx-1"></i><?= htmlspecialchars($row['price']) ?></span>
                             </div>
                         </div>
                     </div>

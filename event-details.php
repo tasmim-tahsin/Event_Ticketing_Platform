@@ -64,7 +64,7 @@ if (!$row) {
       <button
   class="rounded-md bg-slate-800 py-2.5 px-5 border border-transparent text-center text-base text-white transition-all shadow-sm hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
   type="button" <?= $disabled ?>>
-  <?= $buttonText ?>
+  <a href="#tickets"><?= $buttonText ?></a>
 </button>
   </div>
   
@@ -121,7 +121,7 @@ if (!$row) {
 
 <!-- Tickets-->
 
-<div class="my-10">
+<div class="my-10" id="tickets">
   <h2 class="text-xl font-bold mb-4">Ticket details & price</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <?php while($ticket = mysqli_fetch_assoc($ticketsResult)): 
