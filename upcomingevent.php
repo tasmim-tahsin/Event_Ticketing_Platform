@@ -31,7 +31,7 @@
               <div class="max-w-5xl bg-white rounded-xl shadow-md overflow-hidden <?= $index >= 9 ? 'hidden more-events' : '' ?>">
                 <div class="relative">
                     <?php if (strtolower($row['status']) === 'live'): ?>
-                        <span class="absolute top-2 right-2 bg-white text- text-black text-xs font-bold px-2 py-1.5 rounded-lg">🔴 Live Now</span>
+                        <span class="absolute top-2 right-2 bg-white text- text-black text-xs font-bold px-2 py-1.5 rounded-lg animate-pulse">🔴 Live Now</span>
                     <?php endif; ?>
                     <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class="w-full h-52 object-cover">
                     

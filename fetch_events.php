@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       
       
       <?php if ($row['status'] === 'live'): ?>
-        <span class="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded font-bold p-2">🔴 Live Now</span>
+        <span class="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded font-bold p-2 animate-pulse">🔴 Live Now</span>
       <?php endif; ?>
       <?php if ($row['status'] === 'upcoming'): ?>
         <span class="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded font-bold p-2">⌛ Upcoming</span>

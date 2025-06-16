@@ -50,9 +50,9 @@ if (!empty($cart)) {
 
 <!-- Return this as updated cart -->
 <div>
-  <div class="bg-gray-900 text-white rounded-t-md px-4 py-2 text-center font-semibold text-lg">
+  <!-- <div class="bg-gray-900 text-white rounded-t-md px-4 py-2 text-center font-semibold text-lg">
     Ticket Details | <span class="bg-white text-black px-2 py-0.5 rounded text-sm">Total: <?= array_sum($cart) ?> Tickets</span>
-  </div>
+  </div> -->
   <div class="bg-white p-4 rounded-b-md space-y-4 shadow">
     <?php if (!empty($ticketDetails)): ?>
       <?php foreach ($ticketDetails as $ticket): ?>
@@ -70,21 +70,18 @@ if (!empty($cart)) {
           <p class="text-xs text-gray-500">tahsinniyan@gmail.com | 01715710035</p>
         </div>
       <?php endforeach; ?>
-      <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right">৳<?= number_format($subtotal) ?></span></div>
+      <!-- <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right">৳<?= number_format($subtotal) ?></span></div>
       <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
         Go to Checkout
       </a>
-      <p class="text-xs text-gray-500 mt-2 text-center">Check the details before make payment</p>
+      <p class="text-xs text-gray-500 mt-2 text-center">Check the details before make payment</p> -->
     <?php else: ?>
       <p class="text-gray-600 text-sm text-center">No tickets selected.</p>
-      <button onclick="location.reload();" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-            Update Cart
-    </button>
     <?php endif; ?>
   </div>
 </div>
 <?php
-// // This would be part of the add/remove logic in cart_handler.php
+// This would be part of the add/remove logic in cart_handler.php
 
 // // After adding/removing items, we can send a response to update the cart count
 // echo json_encode(['success' => true]);

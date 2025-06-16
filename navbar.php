@@ -45,15 +45,16 @@
       <!-- <button for="my_modal_7" onclick="my_modal_5.showModal()"> -->
         
         <a href="./cart.php" class="relative text-gray-700 dark:text-gray-200 hover:text-gray-600">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" viewBox="0 0 24 24">
-          <path
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" viewBox="0 0 24 24">
+        <path
             d="M3 3H5L6 13H17L21 5H6M6 13L4.5 16C4 17 5 18 6 18H17M17 18C16 18 15 19 15 20C15 21 16 22 17 22C18 22 19 21 19 20C19 19 18 18 17 18ZM7 20C7 21 6 22 5 22C4 22 3 21 3 20C3 19 4 18 5 18C6 18 7 19 7 20Z">
-          </path>
-        </svg>
-        <!-- Optional: Badge -->
-        <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">3</span>
-      </a>
+        </path>
+    </svg>
+    <!-- Dynamic Badge -->
+    <span id="cart-badge" class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+</a>
+
       <!-- </button> -->
       
     </div>
@@ -82,6 +83,26 @@
     </div>
   </div>
 </dialog>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Function to fetch the cart count
+    function updateCartCount() {
+        fetch('cart_count.php')
+            .then(response => response.json())
+            .then(data => {
+                // Update the cart badge with the total items count
+                const badge = document.getElementById("cart-badge");
+                badge.textContent = data.total_items > 0 ? data.total_items : '0'; // Don't show the badge if empty
+            })
+            .catch(error => console.error("Error fetching cart count:", error));
+    }
 
+    // Update the cart count when the page loads
+    updateCartCount();
+
+    // If you have buttons that change the cart (add/remove), you can call updateCartCount() after those actions too.
+});
+
+</script>
 </body>
 </html>
