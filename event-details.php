@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "./navbar.php";
 include "./DB/database.php";
 $id = $_GET['id'] ?? 0;
