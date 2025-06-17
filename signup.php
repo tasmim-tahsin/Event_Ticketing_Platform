@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'phone' => $phone,
                     'role' => $role
                 ];
-                header("Location: signin.php");
+                header("Location: index.php");
                 exit();
             } else {
                 $errors[] = "Database error: " . $stmt->error;

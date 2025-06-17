@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'auth.php';
 include "./DB/database.php";
 
 $event_id = intval($_GET['event_id'] ?? 0);

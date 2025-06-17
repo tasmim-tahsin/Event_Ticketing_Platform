@@ -34,8 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'phone' => $user['phone'],
                     'role'  => $user['role']
                 ];
-                header("Location: index.php"); // or dashboard.php
-                exit();
+                $redirectUrl = $_GET['redirect'] ?? 'index.php';
+                header("Location: " . $redirectUrl);
+                exit;
             } else {
                 $errors[] = "Incorrect password.";
             }
