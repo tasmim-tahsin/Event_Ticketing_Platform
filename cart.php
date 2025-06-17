@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include "./DB/database.php";
 
 $cart = $_SESSION['event_cart'] ?? [];

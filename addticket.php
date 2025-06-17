@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include "./DB/database.php";
 
 $event_id = intval($_GET['event_id'] ?? 0);

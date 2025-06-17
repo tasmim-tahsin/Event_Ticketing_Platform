@@ -988,6 +988,9 @@
   .z-10 {
     z-index: 10;
   }
+  .z-50 {
+    z-index: 50;
+  }
   .col-span-3 {
     grid-column: span 3 / span 3;
   }
@@ -1219,6 +1222,9 @@
   .h-7 {
     height: calc(var(--spacing) * 7);
   }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
@@ -1264,11 +1270,17 @@
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
   .w-16 {
     width: calc(var(--spacing) * 16);
+  }
+  .w-44 {
+    width: calc(var(--spacing) * 44);
   }
   .w-72 {
     width: calc(var(--spacing) * 72);
@@ -1455,6 +1467,9 @@
   .border-t {
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
   }
   .border-gray-300 {
     border-color: var(--color-gray-300);
@@ -1954,6 +1969,13 @@
       }
     }
   }
+  .hover\:bg-gray-100 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-100);
+      }
+    }
+  }
   .hover\:bg-gray-300 {
     &:hover {
       @media (hover: hover) {
@@ -2046,11 +2068,6 @@
       }
     }
   }
-  .focus\:border-blue-400 {
-    &:focus {
-      border-color: var(--color-blue-400);
-    }
-  }
   .focus\:bg-blue-700 {
     &:focus {
       background-color: var(--color-blue-700);
@@ -2082,11 +2099,6 @@
     &:focus {
       --tw-outline-style: none;
       outline-style: none;
-    }
-  }
-  .active\:bg-blue-700 {
-    &:active {
-      background-color: var(--color-blue-700);
     }
   }
   .active\:bg-slate-700 {
@@ -2361,6 +2373,11 @@
       border-color: var(--color-gray-700);
     }
   }
+  .dark\:bg-gray-700 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-700);
+    }
+  }
   .dark\:bg-gray-800 {
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-gray-800);
@@ -2396,6 +2413,11 @@
       color: var(--color-gray-500);
     }
   }
+  .dark\:text-red-400 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-red-400);
+    }
+  }
   .dark\:text-white {
     @media (prefers-color-scheme: dark) {
       color: var(--color-white);
@@ -2410,10 +2432,12 @@
       }
     }
   }
-  .dark\:focus\:border-blue-300 {
+  .dark\:hover\:bg-gray-700 {
     @media (prefers-color-scheme: dark) {
-      &:focus {
-        border-color: var(--color-blue-300);
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-gray-700);
+        }
       }
     }
   }
