@@ -10,7 +10,17 @@
 <body>
 <nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
   <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-    
+    <!-- Mobile menu button -->
+      <button @click="isOpen = !isOpen" class="md:hidden text-gray-600 dark:text-gray-200 focus:outline-none">
+        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+        </svg>
+        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     <!-- Left: Logo -->
     <div class="flex-shrink-0">
       <a href="./index.php">
@@ -30,17 +40,7 @@
 
     <!-- Right: Cart Icon -->
     <div class="flex items-center space-x-4">
-      <!-- Mobile menu button -->
-      <button @click="isOpen = !isOpen" class="md:hidden text-gray-600 dark:text-gray-200 focus:outline-none">
-        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-        </svg>
-        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+      
       
 
       <!-- Cart Icon -->
@@ -121,19 +121,6 @@
     </ul>
   </div>
 </nav>
-
-<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello!</h3>
-    <p class="py-4">Press ESC key or click the button below to close</p>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // Function to fetch the cart count
