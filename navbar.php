@@ -40,6 +40,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+      
 
       <!-- Cart Icon -->
       <!-- <button for="my_modal_7" onclick="my_modal_5.showModal()"> -->
@@ -56,7 +57,9 @@
 </a>
 
       <!-- </button> -->
-      
+      <button class="font-semibold rounded-md bg-blue-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-none active:bg-blue-700 hover:bg-blue-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
+  <a href="./signin.php">Sign In</a>
+</button>
     </div>
   </div>
 
@@ -102,6 +105,16 @@
 
     // If you have buttons that change the cart (add/remove), you can call updateCartCount() after those actions too.
 });
+function updateCartCount() {
+    fetch('cart_count.php')
+        .then(response => response.json())
+        .then(data => {
+            const badge = document.getElementById("cart-badge");
+            badge.textContent = data.total_items > 0 ? data.total_items : '';
+        })
+        .catch(error => console.error("Error fetching cart count:", error));
+}
+
 
 </script>
 </body>

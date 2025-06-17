@@ -77,9 +77,6 @@ if (!empty($cart)) {
       <p class="text-xs text-gray-500 mt-2 text-center">Check the details before make payment</p>
     <?php else: ?>
       <p class="text-gray-600 text-sm text-center">No tickets selected.</p>
-      <button onclick="location.reload();" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-            Update Cart
-    </button>
     <?php endif; ?>
   </div>
 </div>

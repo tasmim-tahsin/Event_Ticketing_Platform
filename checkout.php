@@ -95,20 +95,19 @@ if (!empty($cart)) {
               <h3 class="font-semibold"><?= htmlspecialchars($ticket['name']) ?>
                 <span class="bg-gray-200 text-gray-700 text-xs px-2 py-0.5 rounded"><?= $ticket['selected_quantity'] ?> Tickets</span>
               </h3>
-
-              <button onclick="removeTicket(<?= $event_id ?>, <?= $ticket['id'] ?>)">
+              <button class=" bg-white px-2 py-1 rounded-3xl shadow-md" onclick="removeTicket(<?= $event_id ?>, <?= $ticket['id'] ?>)">
                 <i class="fa-solid fa-trash" style="color: #e42f2f;"></i>
               </button>
 
             </div>
-            <p class="text-sm text-gray-600">Click to view ticket info</p>
+            <p class="text-sm text-gray-600">Ticket info</p>
             <p class="text-xs text-gray-500 mt-2">Md Tasmim Al Tahsin</p>
             <p class="text-xs text-gray-500">tahsinniyan@gmail.com | 01715710035</p>
           </div>
         <?php endforeach; ?>
-        <button onclick="location.reload();" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+        <!-- <button onclick="location.reload();" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
             Update Cart
-    </button>
+    </button> -->
         <!-- <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right">৳<?= number_format($subtotal) ?></span></div> -->
         <!-- <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
           Go to Checkout
@@ -116,9 +115,6 @@ if (!empty($cart)) {
         <p class="text-xs text-gray-500 mt-2 text-center">Check the details before make payment</p> -->
       <?php else: ?>
         <p class="text-gray-600 text-sm text-center">No tickets selected.</p>
-        <button onclick="location.reload();" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-center">
-            Update Cart
-    </button>
       <?php endif; ?>
 
 
@@ -135,18 +131,18 @@ if (!empty($cart)) {
         
         <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right"><?= number_format($subtotal) ?></span></div>
         <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
-          Go to Checkout
+          Proceed To Pay <i class="fa-solid fa-forward animate-pulse mx-2"></i>
         </a>
-        <p class="text-xs text-gray-500 mt-2 text-center">Check the details before make payment</p>
+        <p class="text-xs text-red-500 mt-2 text-center"><i class="fa-solid fa-triangle-exclamation"></i> Tickets are non-refundable or subject to the organizer's decision.</p>
       <?php else: ?>
         <p class="text-gray-600 text-sm text-center">No tickets selected.</p>
         <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right"><?= number_format($subtotal) ?></span></div>
         
         <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
-          Go to Checkout
+          Proceed To Pay <i class="fa-solid fa-forward animate-pulse mx-2"></i>
         </a>
         
-        <p class="text-xs text-gray-500 mt-2 text-center">Check the details before make payment</p>
+        <p class="text-xs text-red-500 mt-2 text-center"><i class="fa-solid fa-triangle-exclamation"></i> Tickets are non-refundable or subject to the organizer's decision.</p>
       <?php endif; ?>
     </div>
   </div>
@@ -162,7 +158,8 @@ function addTicket(eventId, ticketId) {
   })
   .then(res => res.text())
   .then(html => {
-    document.getElementById('cart-details').innerHTML = html;
+    document.getElementById('checkout-details').innerHTML = html;
+    location.reload();
   });
 }
 
@@ -175,6 +172,7 @@ function removeTicket(eventId, ticketId) {
   .then(res => res.text())
   .then(html => {
     document.getElementById('checkout-details').innerHTML = html;
+    location.reload();
   });
 }
 

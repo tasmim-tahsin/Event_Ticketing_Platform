@@ -1,75 +1,121 @@
+<?php
+session_start();
+include "./DB/database.php";
+
+$name = $email = $password = $phone = $role = '';
+$errors = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
+    $phone = trim($_POST['phone']);
+    $agreed = isset($_POST['terms']);
+    $isOrganizer = isset($_POST['organizer']);
+
+    // Set role based on organizer checkbox
+    $role = $isOrganizer ? 'organizer' : 'user';
+
+    // Validate fields
+    if (empty($name)) $errors[] = "Name is required";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email";
+    if (strlen($password) < 8) $errors[] = "Password must be at least 8 characters";
+    if (!preg_match("/^[0-9]{10,15}$/", $phone)) $errors[] = "Invalid phone number";
+    if (!$agreed) $errors[] = "You must agree to the terms";
+
+    // If no errors, insert into DB
+    if (empty($errors)) {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        // Check if email already exists
+        $checkQuery = mysqli_query($conn, "SELECT id FROM users WHERE email = '$email'");
+        if (mysqli_num_rows($checkQuery) > 0) {
+            $errors[] = "Email already registered.";
+        } else {
+            // INSERT with role
+            $stmt = $conn->prepare("INSERT INTO users (name, email, password, phone, role) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $name, $email, $hashedPassword, $phone, $role);
+
+            if ($stmt->execute()) {
+                // Save session data
+                $_SESSION['user'] = [
+                    'name' => $name,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'role' => $role
+                ];
+                header("Location: signin.php");
+                exit();
+            } else {
+                $errors[] = "Database error: " . $stmt->error;
+            }
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp</title>
-    <link href="./output.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SignUp</title>
+  <link href="./output.css" rel="stylesheet"/>
 </head>
 <body>
-    <?php
-    include"./navbar.php";
-?>
-    <div class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl my-20">
-    <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image: url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80');"></div>
+<?php include "./navbar.php"; ?>
 
-    <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
-        <div class="relative flex flex-col rounded-xl bg-transparent">
-  <h4 class="block text-xl font-medium text-slate-800">
-    Sign Up
-  </h4>
-  <p class="text-slate-500 font-light">
-    Nice to meet you! Enter your details to register.
-  </p>
-  <form class="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-    <div class="mb-1 flex flex-col gap-6">
-      <div class="w-full max-w-sm min-w-[200px]">
-        <label class="block mb-2 text-sm text-slate-600">
-          Your Name
-        </label>
-        <input type="text" class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Your Name" />
+<div class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl my-20">
+  <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image: url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?auto=format&fit=crop&w=1575&q=80');"></div>
+
+  <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
+    <h4 class="text-xl font-medium text-slate-800">Sign Up</h4>
+    <p class="text-slate-500 text-sm">Nice to meet you! Enter your details to register.</p>
+
+    <?php if (!empty($errors)): ?>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mt-4 text-sm">
+        <ul>
+          <?php foreach ($errors as $error): ?>
+            <li><?= htmlspecialchars($error) ?></li>
+          <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="w-full max-w-sm min-w-[200px]">
-        <label class="block mb-2 text-sm text-slate-600">
-          Email
-        </label>
-        <input type="email" class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Your Email" />
+    <?php endif; ?>
+
+    <form class="mt-6 space-y-3" method="POST" action="">
+      <div>
+        <label class="text-sm text-slate-600">Your Name</label>
+        <input type="text" name="name" value="<?= htmlspecialchars($name) ?>" required class="w-full border px-3 py-2 rounded text-sm text-slate-700" />
       </div>
-      <div class="w-full max-w-sm min-w-[200px]">
-        <label class="block mb-2 text-sm text-slate-600">
-          Password
-        </label>
-        <input type="password" class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Your Password" />
+      <div>
+        <label class="text-sm text-slate-600">Email</label>
+        <input type="email" name="email" value="<?= htmlspecialchars($email) ?>" required class="w-full border px-3 py-2 rounded text-sm text-slate-700" />
       </div>
-    </div>
-    <div class="inline-flex items-center mt-2">
-      <label class="flex items-center cursor-pointer relative" for="check-2">
-        <input type="checkbox" class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800" id="check-2" />
-        <span class="absolute text-white opacity-0 pointer-events-none peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-          </svg>
-        </span>
-      </label>
-      <label class="cursor-pointer ml-2 text-slate-600 text-sm" for="check-2">
-        Agree with our terms and conditions
-      </label>
-    </div>
-    <button class="mt-4 w-full rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-      Sign Up
-    </button>
-    <p class="flex justify-center mt-6 text-sm text-slate-600">
-      Already have an account?
-      <a href="./signin.php" class="ml-1 text-sm font-semibold text-slate-700 underline">
-        Sign in
-      </a>
-    </p>
-  </form>
+      <div>
+        <label class="text-sm text-slate-600">Password</label>
+        <input type="password" name="password" required class="w-full border px-3 py-2 rounded text-sm text-slate-700" />
+      </div>
+      <div>
+        <label class="text-sm text-slate-600">Phone</label>
+        <input type="tel" name="phone" value="<?= htmlspecialchars($phone) ?>" required class="w-full border px-3 py-2 rounded text-sm text-slate-700" />
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" name="organizer" id="organizer" class="h-4 w-4 border rounded mr-2" <?= isset($_POST['terms']) ? 'checked' : '' ?>>
+        <label for="organizer" class="text-sm font-semibold text-red-400">Sign Up as Organizer</label>
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" name="terms" id="terms" class="h-4 w-4 border rounded mr-2" <?= isset($_POST['terms']) ? 'checked' : '' ?>>
+        <label for="terms" class="text-sm text-slate-600">Agree with our <a href="#" class=" underline">terms and conditions</a></label>
+      </div>
+      <button type="submit" class="w-full bg-slate-800 text-white py-2 rounded hover:bg-slate-700 transition">Sign Up</button>
+      <p class="text-sm text-center text-slate-600 mt-2">Already have an account?
+        <a href="./signin.php" class="text-slate-800 font-semibold underline">Sign in</a>
+      </p>
+    </form>
+  </div>
 </div>
-    </div>
-</div>
-<?php
-    include"./footer.php";
-?>
+
+<?php include "./footer.php"; ?>
 </body>
 </html>

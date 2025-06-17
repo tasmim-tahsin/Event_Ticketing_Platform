@@ -13,3 +13,4 @@ foreach ($cart as $event_id => $tickets) {
 // Return the count as a JSON response
 echo json_encode(['total_items' => $total_items]);
 ?>
+
