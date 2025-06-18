@@ -1,4 +1,10 @@
+<?php
+include './DB/database.php';
 
+$userEmail = $_SESSION['user']['email'];
+$query = mysqli_query($conn, "SELECT * FROM users WHERE email = '$userEmail'");
+$user = mysqli_fetch_assoc($query);
+?>
 <!doctype html>
 <html>
 <head>
@@ -67,7 +73,7 @@
     <!-- User Dropdown -->
     <div class="relative" x-data="{ dropdownOpen: false }">
       <button @click="dropdownOpen = !dropdownOpen" class="flex items-center space-x-2 border border-gray-200 rounded-full px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
-        <img class="w-8 h-8 rounded-full object-cover" src="https://i.ibb.co/ZYW3VTp/brown-brim.png" alt="User">
+        <img class="w-8 h-8 rounded-full object-cover" src="<?= !empty($user['profile_image']) ? $user['profile_image'] : './images/default-avatar.png' ?>" alt="User">
         <span class="text-sm font-medium text-gray-700 dark:text-gray-200"><?= htmlspecialchars($_SESSION['user']['name']) ?></span>
         <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414L10 13.414 5.293 8.707a1 1 0 010-1.414z" clip-rule="evenodd" />
