@@ -34,6 +34,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <a href="event-details.php?id=<?= $row['id'] ?>" class="block hover:shadow-lg transition-shadow duration-300">
   <!-- entire card inside -->
    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <!-- transition duration-500 ease-in-out text-white bg-indigo-600 hover:bg-indigo-700 transform hover:-translate-y-1 hover:scale-110 -->
     <div class="relative">
       
       

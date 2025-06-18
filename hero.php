@@ -8,7 +8,7 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-    <div class="lg:flex mx-10">
+    <div class="lg:flex px-10 bg-gradient-to-tl from-stone-100 via-transparent to-blue-200">
         <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/3">
             <div class="max-w-xl">
                 <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-gray-900 md:text-5xl md:tracking-tight">
