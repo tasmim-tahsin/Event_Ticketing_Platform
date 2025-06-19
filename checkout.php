@@ -102,8 +102,8 @@ if (!empty($cart)) {
 
             </div>
             <p class="text-sm text-gray-600">Ticket info</p>
-            <p class="text-xs text-gray-500 mt-2">Md Tasmim Al Tahsin</p>
-            <p class="text-xs text-gray-500">tahsinniyan@gmail.com | 01715710035</p>
+            <p class="text-xs text-gray-500 mt-2"><?= htmlspecialchars($_SESSION['user']['name']) ?></p>
+            <p class="text-xs text-gray-500"><?= htmlspecialchars($_SESSION['user']['email']) ?> | <?= htmlspecialchars($_SESSION['user']['phone']) ?></p>
           </div>
         <?php endforeach; ?>
         <!-- <button onclick="location.reload();" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">

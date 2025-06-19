@@ -56,16 +56,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Profile</title>
+    <title><?= htmlspecialchars($_SESSION['user']['name']) ?> - Edit Profile</title>
     <link href="./output.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
 <?php include "navbar.php"; ?>
-
-<div class="max-w-4xl mx-auto mt-10 bg-white p-8 rounded shadow border border-yellow-300">
+<div  class="text-center p-5 my-5 bg-amber-50 rounded-md max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold">Edit Profile</h1>
+        <p>Here, you can update your username, full name, phone number, email address, and profile image. Please ensure all information is accurate before saving changes.</p>
+    </div>
+<div class="max-w-4xl mx-auto my-10 bg-white p-8 rounded shadow border border-yellow-300">
     <h2 class="text-3xl font-bold text-gray-800 mb-2">Change Photo</h2>
-    <p class="text-sm text-gray-500 mb-6">Click the pencil icon to change photo.</p>
+    <p class="text-sm text-gray-500 mb-6">Click the camera icon to change photo.</p>
 
     <?php if ($error): ?>
         <div class="bg-red-100 text-red-700 px-4 py-2 mb-4 rounded"><?= $error ?></div>
@@ -95,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label class="block font-semibold text-sm mt-4 mb-1">Address</label>
             <input type="text" name="address" value="<?= htmlspecialchars($user['address']) ?>" class="w-full px-4 py-2 border rounded">
 
-            <button type="submit" class="mt-6 bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700">Save Changes</button>
+            <button type="submit" class="mt-6 bg-black text-white py-2 px-6 rounded hover:bg-blue-700">Save Changes</button>
         </div>
     </form>
 </div>

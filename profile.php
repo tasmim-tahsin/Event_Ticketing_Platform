@@ -40,7 +40,7 @@ if ($is_organizer) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= htmlspecialchars($_SESSION['user']['name']) ?> - Profile</title>
     <link href="./output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -49,6 +49,7 @@ if ($is_organizer) {
         
         include "./navbar.php";
     ?>
+    
     <div class="max-w-6xl mx-auto px-6 py-8">
     <div class="bg-white p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between">
         <div class="flex items-center space-x-6">
@@ -59,11 +60,11 @@ if ($is_organizer) {
                 <div class="text-sm text-gray-600 mt-1 space-y-1">
                     <div><i class="fa-solid fa-envelope text-blue-600 mr-1"></i> <?= htmlspecialchars($user['email']) ?></div>
                     <div><i class="fa-solid fa-phone text-blue-600 mr-1"></i> <?= htmlspecialchars($user['phone'] ?? 'None') ?></div>
-                    <div><i class="fa-solid fa-user text-blue-600 mr-1"></i> <?= htmlspecialchars($user['username'] ?? '') ?></div>
+                    <div><i class="fa-solid fa-user text-blue-600 mr-1"></i> <?= htmlspecialchars($user['address'] ?? '') ?></div>
                 </div>
                 <div class="mt-3 space-x-2">
                     <a href="editprofile.php" class="inline-block bg-gray-800 text-white px-4 py-1 rounded hover:bg-gray-700">
-                        Edit Profile
+                        Edit Profile <i class="fa-regular fa-pen-to-square"></i>
                     </a>
                     <a href="resetpassword.php" class="inline-block bg-lime-400 text-black px-4 py-1 rounded hover:bg-lime-500">
                         Reset Password
@@ -74,19 +75,19 @@ if ($is_organizer) {
 
         <div class="flex space-x-6 mt-6 md:mt-0">
             <?php if (!$is_organizer): ?>
-                <div class="text-center">
-                    <p class="text-sm text-gray-600">Your Total Orders:</p>
-                    <div class="text-lg font-bold bg-gray-800 text-white px-3 py-1 rounded"><?= $total_orders ?></div>
+                <div class="text-center bg-stone-100 p-5 rounded-md">
+                    <p class="text-sm text-gray-600">Your Total Orders</p>
+                    <div class="text-lg font-bold bg-gray-800 text-white px-1 py-1 rounded"><?= $total_orders ?></div>
                 </div>
             <?php endif; ?>
             <div class="text-center">
-                <p class="text-sm text-gray-600">Your Total Tickets:</p>
-                <div class="text-lg font-bold bg-gray-800 text-white px-3 py-1 rounded"><?= $total_tickets ?></div>
+                <p class="text-sm text-gray-600 bg-stone-100 p-5 rounded-md">Your Total Tickets</p>
+                <div class="text-lg font-bold bg-gray-800 text-white px-1 py-1 rounded"><?= $total_tickets ?></div>
             </div>
             <?php if ($is_organizer): ?>
                 <div class="text-center">
-                    <p class="text-sm text-gray-600">Your Total Events:</p>
-                    <div class="text-lg font-bold bg-gray-800 text-white px-3 py-1 rounded"><?= $total_events ?></div>
+                    <p class="text-sm text-gray-600 bg-stone-100 p-5 rounded-md">Your Total Events</p>
+                    <div class="text-lg font-bold bg-gray-800 text-white px-1 py-1 rounded"><?= $total_events ?></div>
                 </div>
             <?php endif; ?>
         </div>

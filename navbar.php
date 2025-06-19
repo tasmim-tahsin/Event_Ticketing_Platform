@@ -1,9 +1,11 @@
 <?php
 include './DB/database.php';
+if(isset($_SESSION['user'])){
+  $userEmail = $_SESSION['user']['email'];
+  $query = mysqli_query($conn, "SELECT * FROM users WHERE email = '$userEmail'");
+  $user = mysqli_fetch_assoc($query);
+}
 
-$userEmail = $_SESSION['user']['email'];
-$query = mysqli_query($conn, "SELECT * FROM users WHERE email = '$userEmail'");
-$user = mysqli_fetch_assoc($query);
 ?>
 <!doctype html>
 <html>

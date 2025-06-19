@@ -55,12 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Reset Password</title>
+  <title><?= htmlspecialchars($_SESSION['user']['name']) ?> - Reset Password</title>
   <link href="./output.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="bg-white p-10 rounded shadow-md w-full max-w-xl mx-auto text-center">
+<div class="bg-white p-10 rounded shadow-md w-full max-w-xl mx-auto text-center mt-5">
     <h2 class="text-2xl font-bold mb-2">Update Password</h2>
     <p class="text-sm text-gray-600 mb-6">We’ve sent a code to <strong><?= htmlspecialchars($user['email']) ?></strong>. The code expires shortly, so please enter it soon.</p>
 
