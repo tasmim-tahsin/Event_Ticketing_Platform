@@ -129,18 +129,41 @@ if (!empty($cart)) {
     </div>
     <div class="bg-white p-4 rounded-b-md space-y-4 shadow">
       <?php if (!empty($ticketDetails)): ?>
-        
+        <?php if (isset($_SESSION['purchase_status'])): ?>
+    <div class="bg-green-100 text-green-800 p-2 text-center font-semibold rounded">
+        <?= $_SESSION['purchase_status'] ?>
+    </div>
+    <?php unset($_SESSION['purchase_status']); ?>
+<?php endif; ?>
+
+        <form action="./purchase.php" method="post">
+          <input type="hidden" name="event_id" value="<?= $event_id ?>">
         <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right"><?= number_format($subtotal) ?></span></div>
-        <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
-          Proceed To Pay <i class="fa-solid fa-forward animate-pulse mx-2"></i>
-        </a>
+        <div class="text-black my-2">
+         <h2 class="font-bold text-xl">Payment Method</h2>
+         <input type="radio" name="Bkash" id="Bkash" value="Bkash">Bkash
+        </div>
+        <div class="flex items-center">
+        <input type="checkbox" name="terms" id="terms" class="h-4 w-4 border rounded mr-2" <?= isset($_POST['terms']) ? 'checked' : '' ?>>
+        <label for="terms" class="text-sm text-black">I agree to the Terms & Conditions, Privacy Policy, and Refund Policy.</label>
+        </div>
+        <button type="submit" name="proceed_to_pay" class="block w-full bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold mt-2">
+        Proceed To Pay <i class="fa-solid fa-forward animate-pulse mx-2"></i>
+        </button>
+        </form>
         <p class="text-xs text-red-500 mt-2 text-center"><i class="fa-solid fa-triangle-exclamation"></i> Tickets are non-refundable or subject to the organizer's decision.</p>
       <?php else: ?>
+        <?php if (isset($_SESSION['purchase_status'])): ?>
+    <div class="bg-green-100 text-green-800 p-2 text-center font-semibold rounded">
+        <?= $_SESSION['purchase_status'] ?>
+    </div>
+    <?php unset($_SESSION['purchase_status']); ?>
+<?php endif; ?>
         <p class="text-gray-600 text-sm text-center">No tickets selected.</p>
         <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right"><?= number_format($subtotal) ?></span></div>
         
         <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
-          Proceed To Pay <i class="fa-solid fa-forward animate-pulse mx-2"></i>
+          <button>Proceed To Pay</button> <i class="fa-solid fa-forward animate-pulse mx-2"></i>
         </a>
         
         <p class="text-xs text-red-500 mt-2 text-center"><i class="fa-solid fa-triangle-exclamation"></i> Tickets are non-refundable or subject to the organizer's decision.</p>

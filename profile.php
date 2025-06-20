@@ -3,9 +3,19 @@ session_start();
 include 'auth.php';
 include 'DB/database.php';
 
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id'])) {
+    header("Location: signin.php");
+    exit;
+}
+
 $user = $_SESSION['user'];
 $user_id = $user['id'];
 $is_organizer = strtolower($user['role']) === 'organizer';
+// echo "<pre>";
+// print_r($_SESSION['user']);
+// echo "</pre>";
+// exit;
+
 
 // Fetch total tickets (applies to both users and organizers)
 $total_tickets = 0;
