@@ -37,14 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param("sssss", $name, $email, $hashedPassword, $phone, $role);
 
             if ($stmt->execute()) {
-                // Save session data
-                $_SESSION['user'] = [
-                    'name' => $name,
-                    'email' => $email,
-                    'phone' => $phone,
-                    'role' => $role
-                ];
-                header("Location: index.php");
+                // // Save session data
+                // $_SESSION['user'] = [
+                //     'name' => $name,
+                //     'email' => $email,
+                //     'phone' => $phone,
+                //     'role' => $role
+                // ];
+                header("Location: signin.php");
                 exit();
             } else {
                 $errors[] = "Database error: " . $stmt->error;
@@ -67,7 +67,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include "./navbar.php"; ?>
 
 <div class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl my-20">
-  <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image: url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?auto=format&fit=crop&w=1575&q=80');"></div>
+  <div class="hidden lg:flex lg:w-1/2 relative bg-cover bg-center rounded-md overflow-hidden" style="background-image: url('./images/concert.webp');">
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+  <!-- Centered content -->
+  <div class="relative z-10 m-auto text-center text-white px-4">
+    <h1 class="text-3xl md:text-4xl font-bold font-[Orbitron] mb-4 leading-tight">Get Your Desired Event Pass!</h1>
+    <a href="./events.php" class="inline-block px-6 py-2 bg-[#003C2F] hover:bg-[#00291f] text-white font-semibold rounded shadow-md transition">
+      Explore <i class="fa-solid fa-forward ml-2"></i>
+    </a>
+  </div>
+</div>
+
 
   <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
     <h4 class="text-xl font-medium text-slate-800">Sign Up</h4>

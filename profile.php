@@ -104,9 +104,77 @@ if ($is_organizer) {
     </div>
 </div>
 
+<div class="max-w-6xl mx-auto px-6 py-6 mb-10">
+    <button class="bg-black text-white px-4 py-2 rounded" data-tab="tickipass">
+        <i class="fa-solid fa-qrcode mr-2"></i> TICKIPASS
+    </button>
+</div>
+
+
+<div id="tickipass-container" class="my-6 hidden max-w-6xl mx-auto">
+    <div id="tickipass-loader" class="text-center text-gray-500">Loading tickets...</div>
+    <div id="tickipass-content" class="grid md:grid-cols-2 gap-4 mt-4"></div>
+</div>
+
+
+
 
     <?php
         include "./footer.php";
     ?>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const tickipassBtn = document.querySelector("button[data-tab='tickipass']");
+    const container = document.getElementById("tickipass-container");
+    const loader = document.getElementById("tickipass-loader");
+    const content = document.getElementById("tickipass-content");
+
+    tickipassBtn.addEventListener('click', () => {
+        container.classList.remove("hidden");
+        loader.style.display = "block";
+        content.innerHTML = "";
+
+        fetch('fetch_tickipass.php')
+            .then(res => {
+                if (!res.ok) throw new Error("Failed to fetch");
+                return res.json();
+            })
+            .then(data => {
+                loader.style.display = "none";
+
+                if (!Array.isArray(data) || data.length === 0) {
+                    content.innerHTML = `
+                        <div class="col-span-2 text-center text-gray-500">
+                            <img src="./images/empty.png" alt="No Tickets" class="w-36 mx-auto mb-3">
+                            <p>You have no tickets to show.</p>
+                        </div>`;
+                    return;
+                }
+
+                data.forEach(ticket => {
+                    const card = document.createElement("div");
+                    card.className = "bg-white rounded-lg shadow p-4 border border-gray-200";
+
+                    card.innerHTML = `
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">${ticket.title}</h3>
+                        <p class="text-sm text-gray-600"><i class="fa-solid fa-location-dot mr-1 text-blue-600"></i>${ticket.location}</p>
+                        <p class="text-sm text-gray-600"><i class="fa-solid fa-clock mr-1 text-blue-600"></i>${ticket.event_date}</p>
+                        <a href="download.php?file=${ticket.pdf_path.split('/').pop()}" class="inline-block mt-3 bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+                            Download Ticket <i class="fa-solid fa-download ml-1"></i>
+                        </a>`;
+                    content.appendChild(card);
+                });
+            })
+            .catch(err => {
+                loader.style.display = "none";
+                content.innerHTML = `<div class="text-red-600">Error loading TickiPass: ${err.message}</div>`;
+                console.error("TickiPass Fetch Error:", err);
+            });
+    });
+});
+</script>
+
+
+
 </body>
 </html>

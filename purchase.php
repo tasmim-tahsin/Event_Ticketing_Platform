@@ -52,7 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proceed_to_pay'])) {
         }
     }
 
-    // Insert multiple orders (1 per ticket)
+    $eventRes = mysqli_query($conn, "SELECT * FROM events WHERE id = $event_id");
+    $event = mysqli_fetch_assoc($eventRes);
+
+    $user = $_SESSION['user'];
+
     $all_success = true;
 
     foreach ($ticketDetails as $ticket) {
@@ -60,63 +64,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proceed_to_pay'])) {
         $qty = $ticket['selected_quantity'];
         $total = $ticket['total_price'];
 
-        // Insert into orders
-        $order_sql = "INSERT INTO orders (user_id, event_id, ticket_id, quantity, total_price, order_date)
-                      VALUES ($user_id, $event_id, $ticket_id, $qty, $total, NOW())";
-        $order_result = mysqli_query($conn, $order_sql);
+        $stmt = $conn->prepare("INSERT INTO orders (user_id, event_id, ticket_id, quantity, total_price, order_date) VALUES (?, ?, ?, ?, ?, NOW())");
+        $stmt->bind_param("iiidi", $user_id, $event_id, $ticket_id, $qty, $total);
+        $stmt->execute();
 
-        if (!$order_result) {
+        if ($stmt->affected_rows <= 0) {
             $all_success = false;
-            $_SESSION['purchase_status'] = "Payment Failed: " . mysqli_error($conn);
+            $_SESSION['purchase_status'] = "Payment Failed.";
             break;
         }
 
-        // Deduct ticket quantity
-        mysqli_query($conn, "UPDATE tickets SET quantity = quantity - $qty WHERE id = $ticket_id");
+        $order_id = $stmt->insert_id;
+        $stmt->close();
+
+        // Deduct quantity
+        $conn->query("UPDATE tickets SET quantity = quantity - $qty WHERE id = $ticket_id");
+
+        // Generate and save PDF (also inserts to ticket_files inside the function)
+        $pdfPath = generateTicketPDF($order_id, $event, $ticket, $user);
+
+        // Send email with attachment
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'tahsinniyan@gmail.com';
+            $mail->Password = 'tybk dsrc dsyf mwkv'; // use app password
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            $mail->setFrom('tahsinniyan@gmail.com', 'TicketKing');
+            $mail->addAddress($user['email'], $user['name']);
+            $mail->isHTML(true);
+            $mail->Subject = "Your Ticket Invoice for {$event['title']}";
+            $mail->Body = "Dear {$user['name']},<br>Thank you for your purchase. Find your ticket attached.";
+            $mail->addAttachment($pdfPath);
+            $mail->send();
+        } catch (Exception $e) {
+            error_log("Mailer Error: " . $mail->ErrorInfo);
+        }
     }
 
     if ($all_success) {
-        
-$order_id = mysqli_insert_id($conn);
-
-// Fetch event data
-$eventQuery = mysqli_query($conn, "SELECT * FROM events WHERE id = $event_id");
-$event = mysqli_fetch_assoc($eventQuery);
-
-// Fetch user data
-$userQuery = mysqli_query($conn, "SELECT * FROM users WHERE id = $user_id");
-$user = mysqli_fetch_assoc($userQuery);
-
-
-$mail = new PHPMailer(true);
-try {
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'tahsinniyan@gmail.com';
-    $mail->Password = 'tybk dsrc dsyf mwkv';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
-
-    $mail->setFrom('tahsinniyan@gmail.com', 'TicketKing');
-    $mail->addAddress($_SESSION['user']['email'], $_SESSION['user']['name']);
-    $mail->isHTML(true);
-    $mail->Subject = "Your Ticket Invoice for {$event['title']}";
-    
-    $pdfPath = generateTicketPDF($order_id, $event, $ticket, $user);
-    $mail->Body = "Dear {$_SESSION['user']['name']},<br>Thank you for your purchase. Find your ticket attached.";
-    $mail->addAttachment($pdfPath);
-    
-    $mail->send();
-    echo 'Message sent successfully';
-} catch (Exception $e) {
-    echo "Mailer Error: {$mail->ErrorInfo}";
-}
         unset($_SESSION['event_cart'][$event_id]);
         $_SESSION['purchase_status'] = "Payment Successful!";
-
     }
-        
+
     header("Location: checkout.php?event_id=$event_id");
     exit;
 } else {
