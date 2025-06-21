@@ -90,10 +90,12 @@ if ($is_organizer) {
                     <div class="text-lg font-bold bg-gray-800 text-white px-1 py-1 rounded"><?= $total_orders ?></div>
                 </div>
             <?php endif; ?>
+            <?php if (!$is_organizer): ?>
             <div class="text-center">
                 <p class="text-sm text-gray-600 bg-stone-100 p-5 rounded-md">Your Total Tickets</p>
                 <div class="text-lg font-bold bg-gray-800 text-white px-1 py-1 rounded"><?= $total_tickets ?></div>
             </div>
+            <?php endif; ?>
             <?php if ($is_organizer): ?>
                 <div class="text-center">
                     <p class="text-sm text-gray-600 bg-stone-100 p-5 rounded-md">Your Total Events</p>
@@ -104,10 +106,18 @@ if ($is_organizer) {
     </div>
 </div>
 
-<div class="max-w-6xl mx-auto px-6 py-6 mb-10">
+<div class=" flex gap-5 max-w-6xl mx-auto px-6 py-6 mb-10">
     <button class="bg-black text-white px-4 py-2 rounded" data-tab="tickipass">
         <i class="fa-solid fa-qrcode mr-2"></i> TICKIPASS
     </button>
+    <?php if ($is_organizer): ?>
+        <button class="bg-black text-white px-4 py-2 rounded">
+            <i class="fa-solid fa-sliders mr-2"></i> <a href="./dashboard.php">Dashboard</a>
+        </button>
+        <button class="bg-black text-white px-4 py-2 rounded">
+            <i class="fa-solid fa-chart-simple mr-2"></i> <a href="./sales_report.php">Sales Report</a>
+        </button>
+    <?php endif; ?>
 </div>
 
 
