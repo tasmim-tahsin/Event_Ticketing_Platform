@@ -159,7 +159,7 @@ if ($is_organizer) {
                         <h3 class="text-xl font-bold mb-2 text-gray-800">${ticket.title}</h3>
                         <p class="text-sm text-gray-600"><i class="fa-solid fa-location-dot mr-1 text-blue-600"></i>${ticket.location}</p>
                         <p class="text-sm text-gray-600"><i class="fa-solid fa-clock mr-1 text-blue-600"></i>${ticket.event_date}</p>
-                        <a href="download.php?file=${ticket.pdf_path.split('/').pop()}" class="inline-block mt-3 bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+                        <a href="./tickets/invoice_ticket_36.pdf" download class="inline-block mt-3 bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
                             Download Ticket <i class="fa-solid fa-download ml-1"></i>
                         </a>`;
                     content.appendChild(card);

@@ -184,10 +184,10 @@ if (!$row) {
           <a href="<?= htmlspecialchars($organizer['instagram']) ?>" target="_blank"><i class="fab fa-instagram"></i></a>
         <?php endif; ?>
         <?php if (!empty($organizer['email'])): ?>
-          <a href="mailto:<?= htmlspecialchars($organizer['email']) ?>"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:<?= htmlspecialchars($organizer['email']) ?>"><i class="fas fa-envelope mr-2"></i><?= htmlspecialchars($organizer['email']) ?></a>
         <?php endif; ?>
         <?php if (!empty($organizer['phone'])): ?>
-          <a href="tel:<?= htmlspecialchars($organizer['phone']) ?>"><i class="fas fa-phone"></i></a>
+          <a href="tel:<?= htmlspecialchars($organizer['phone']) ?>"><i class="fas fa-phone mr-2"></i><?= htmlspecialchars($organizer['phone']) ?></a>
         <?php endif; ?>
       </div>
 
