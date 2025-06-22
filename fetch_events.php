@@ -5,7 +5,7 @@ $search = $_POST['search'] ?? '';
 $category = $_POST['category'] ?? '';
 $status = $_POST['status'] ?? '';
 
-$query = "SELECT * FROM events WHERE 1=1";
+$query = "SELECT * FROM events WHERE admin_status = 'approved'";
 
 if (!empty($search)) {
     $search = mysqli_real_escape_string($conn, $search);

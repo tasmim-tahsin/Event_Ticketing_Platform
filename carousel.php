@@ -2,7 +2,7 @@
 include 'DB/database.php';
 
 // Fetch live events from database
-$events = mysqli_query($conn, "SELECT id, title, image FROM events WHERE status = 'live' ORDER BY date ASC LIMIT 5");
+$events = mysqli_query($conn, "SELECT id, title, image FROM events WHERE admin_status = 'approved' AND status = 'live' ORDER BY date ASC LIMIT 5");
 $event_data = [];
 while ($event = mysqli_fetch_assoc($events)) {
     $event_data[] = $event;

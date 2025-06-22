@@ -2,7 +2,7 @@
     include "./DB/database.php";
 
     // Fetch all live or upcoming events
-    $query = "SELECT * FROM events WHERE status = 'live'";
+    $query = "SELECT * FROM events WHERE admin_status = 'approved' AND status = 'live'";
     $result = mysqli_query($conn, $query);
 
     $events = [];

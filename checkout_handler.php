@@ -65,10 +65,10 @@ if (!empty($cart)) {
               <i class="fa-solid fa-trash" style="color: #e42f2f;"></i>
             </button>
           </div>
-          <p class="text-sm text-gray-600">Click to view ticket info</p>
-          <p class="text-xs text-gray-500 mt-2">Md Tasmim Al Tahsin</p>
-          <p class="text-xs text-gray-500">tahsinniyan@gmail.com | 01715710035</p>
-        </div>
+            <p class="text-sm text-gray-600">Ticket info</p>
+            <p class="text-xs text-gray-500 mt-2"><?= htmlspecialchars($_SESSION['user']['name']) ?></p>
+            <p class="text-xs text-gray-500"><?= htmlspecialchars($_SESSION['user']['email']) ?> | <?= htmlspecialchars($_SESSION['user']['phone']) ?></p>
+          </div>
       <?php endforeach; ?>
       <!-- <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right">৳<?= number_format($subtotal) ?></span></div>
       <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
