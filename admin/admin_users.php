@@ -77,7 +77,7 @@ $users = mysqli_query($conn, "SELECT * FROM users ORDER BY created_at DESC");
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10">
                                             <?php if (!empty($user['profile_image'])): ?>
-                                            <img class="h-10 w-10 rounded-full" src="<?= htmlspecialchars($user['profile_image']) ?>" alt="">
+                                            <img class="h-10 w-10 rounded-full" src="../<?= htmlspecialchars($user['profile_image']) ?>" alt="">
                                             <?php else: ?>
                                             <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                                                 <i class="fas fa-user text-gray-500"></i>

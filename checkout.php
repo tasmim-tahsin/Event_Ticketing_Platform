@@ -85,10 +85,10 @@ if (!empty($cart)) {
 </div>
 
 <!-- Main Section -->
-<div class="max-w-6xl mx-auto flex justify-between gap-6 mb-20">
+<div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between gap-6 mb-20">
     
   <!-- Ticket List -->
-  <div class="bg-white w-1/2 p-4 rounded-b-md space-y-4 shadow" id="checkout-details">
+  <div class="bg-white lg:w-1/2 p-4 rounded-b-md space-y-4 shadow" id="checkout-details">
       <?php if (!empty($ticketDetails)): ?>
         <?php foreach ($ticketDetails as $ticket): ?>
           <div class="border rounded p-3">
@@ -123,55 +123,124 @@ if (!empty($cart)) {
 
 
   <!-- Cart Section -->
-  <div class="w-xl" id="cart-details">
-    <div class="bg-gray-900 text-white rounded-t-md px-4 py-2 text-center font-semibold text-lg">
-      Ticket Details | <span class="bg-white text-black px-2 py-0.5 rounded text-sm">Total: <?= array_sum($cart) ?> Tickets</span>
-    </div>
-    <div class="bg-white p-4 rounded-b-md space-y-4 shadow">
-      <?php if (!empty($ticketDetails)): ?>
-        <?php if (isset($_SESSION['purchase_status'])): ?>
-    <div class="bg-green-100 text-green-800 p-2 text-center font-semibold rounded">
-        <?= $_SESSION['purchase_status'] ?>
-    </div>
-    <?php unset($_SESSION['purchase_status']); ?>
-<?php endif; ?>
-
-        <form action="./purchase.php" method="post">
+  <div class="" id="cart-details">
+    <div class="bg-white rounded-lg shadow-md sticky top-4">
+      <div class="bg-gray-900 text-white px-4 py-3 rounded-t-lg">
+        <h2 class="text-lg font-semibold flex items-center">
+          <i class="fas fa-receipt mr-2"></i> Order Summary
+        </h2>
+      </div>
+      
+      <div class="p-4">
+        <?php if (!empty($ticketDetails)): ?>
+          <!-- Order Items -->
+          <div class="space-y-3 mb-4">
+            <?php foreach ($ticketDetails as $ticket): ?>
+              <div class="flex justify-between text-sm">
+                <span><?= $ticket['selected_quantity'] ?> × <?= htmlspecialchars($ticket['name']) ?></span>
+                <span>৳<?= number_format($ticket['total_price']) ?></span>
+              </div>
+            <?php endforeach; ?>
+          </div>
+          <form action="./purchase.php" method="post">
           <input type="hidden" name="event_id" value="<?= $event_id ?>">
-        <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right"><?= number_format($subtotal) ?></span></div>
-        <div class="text-black my-2">
-         <h2 class="font-bold text-xl">Payment Method</h2>
-         <input type="radio" name="Bkash" id="Bkash" value="Bkash">Bkash
-        </div>
-        <div class="flex items-center">
-        <input type="checkbox" name="terms" id="terms" class="h-4 w-4 border rounded mr-2" <?= isset($_POST['terms']) ? 'checked' : '' ?>>
-        <label for="terms" class="text-sm text-black">I agree to the Terms & Conditions, Privacy Policy, and Refund Policy.</label>
-        </div>
-        <button type="submit" name="proceed_to_pay" class="block w-full bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold mt-2">
+          <!-- Subtotal -->
+          <div class="border-t pt-3 mb-4">
+            <div class="flex justify-between font-semibold">
+              <span>Subtotal</span>
+              <span>৳<?= number_format($subtotal) ?></span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-500 mt-1">
+              <span>Service Fee</span>
+              <span>৳0</span>
+            </div>
+          </div>
+          
+          <!-- Total -->
+          <div class="border-t pt-3 mb-6">
+            <div class="flex justify-between font-bold text-lg">
+              <span>Total</span>
+              <span>৳<?= number_format($subtotal) ?></span>
+            </div>
+          </div>
+          
+          <!-- Payment Methods -->
+          <div class="mb-6">
+            <h3 class="font-semibold mb-3 flex items-center">
+              <i class="fas fa-credit-card mr-2"></i> Payment Method
+            </h3>
+            <div class="space-y-2">
+              <label class="payment-method block">
+                <input type="radio" name="payment_method" value="bkash" class="mr-2" checked>
+                <img src="assets/bkash.png" alt="bKash" class="h-6 inline mr-2">
+                bKash
+              </label>
+              <label class="payment-method block">
+                <input type="radio" name="payment_method" value="nagad" class="mr-2">
+                <img src="assets/nagad.png" alt="Nagad" class="h-6 inline mr-2">
+                Nagad
+              </label>
+              <label class="payment-method block">
+                <input type="radio" name="payment_method" value="card" class="mr-2">
+                <i class="fab fa-cc-visa text-blue-500 mr-2"></i>
+                <i class="fab fa-cc-mastercard text-red-500 mr-2"></i>
+                Credit/Debit Card
+              </label>
+            </div>
+          </div>
+          
+          <!-- Terms and Conditions -->
+          <div class="mb-6">
+            <div class="flex items-start">
+              <input type="checkbox" id="terms" name="terms" class="mt-1 mr-2" required>
+              <label for="terms" class="text-sm text-gray-600">
+                I agree to the <a href="#" class="text-[#003C2F] hover:underline">Terms & Conditions</a>, 
+                <a href="#" class="text-[#003C2F] hover:underline">Privacy Policy</a>, and 
+                <a href="#" class="text-[#003C2F] hover:underline">Refund Policy</a>.
+              </label>
+            </div>
+          </div>
+          
+          <!-- Checkout Button -->
+          
+            <input type="hidden" name="event_id" value="<?= $event_id ?>">
+            <button type="submit" name="proceed_to_pay" class="block w-full bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold mt-2">
         Proceed To Pay <i class="fa-solid fa-forward animate-pulse mx-2"></i>
         </button>
-        </form>
-        <p class="text-xs text-red-500 mt-2 text-center"><i class="fa-solid fa-triangle-exclamation"></i> Tickets are non-refundable or subject to the organizer's decision.</p>
-      <?php else: ?>
+          </form>
+          
+          <!-- Security Info -->
+          <div class="mt-3 text-xs text-gray-500 text-center">
+            <i class="fas fa-shield-alt text-green-500 mr-1"></i> Secure SSL encrypted payment
+          </div>
+          
+          <!-- Refund Policy -->
+          <div class="mt-4 p-3 bg-red-50 rounded-lg border border-red-100">
+            <div class="flex items-start">
+              <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+              <div class="text-sm text-red-600">
+                <strong>Refund Policy:</strong> Tickets are non-refundable except in case of event cancellation. 
+                All sales are final.
+              </div>
+            </div>
+          </div>
+        <?php else: ?>
+          <div class="text-center py-8 text-gray-500">
+            <i class="fas fa-shopping-cart fa-2x mb-3"></i>
+            <p>Your cart is empty</p>
+          </div>
+        <?php endif; ?>
+        
         <?php if (isset($_SESSION['purchase_status'])): ?>
     <div class="bg-green-100 text-green-800 p-2 text-center font-semibold rounded">
         <?= $_SESSION['purchase_status'] ?>
     </div>
     <?php unset($_SESSION['purchase_status']); ?>
 <?php endif; ?>
-        <p class="text-gray-600 text-sm text-center">No tickets selected.</p>
-        <div class="font-bold text-lg pt-2 border-t">SUB TOTAL <span class="float-right"><?= number_format($subtotal) ?></span></div>
-        
-        <a href="checkout.php?event_id=<?= $event_id ?>" class="block mt-4 bg-[#003C2F] hover:bg-[#00291f] text-white text-center py-2 rounded font-semibold">
-          <button>Proceed To Pay</button> <i class="fa-solid fa-forward animate-pulse mx-2"></i>
-        </a>
-        
-        <p class="text-xs text-red-500 mt-2 text-center"><i class="fa-solid fa-triangle-exclamation"></i> Tickets are non-refundable or subject to the organizer's decision.</p>
-      <?php endif; ?>
+      </div>
     </div>
-  </div>
 </div>
-
+</div>
 <?php include "./footer.php"; ?>
 <script>
 function addTicket(eventId, ticketId) {

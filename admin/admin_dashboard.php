@@ -227,7 +227,7 @@ if ($orders_result) {
                                             <div class="flex items-center">
                                                 <?php if (!empty($event['image'])): ?>
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded" src="<?= htmlspecialchars($event['image']) ?>" alt="">
+                                                    <img class="h-10 w-10 rounded" src="../<?= htmlspecialchars($event['image']) ?>" alt="">
                                                 </div>
                                                 <?php endif; ?>
                                                 <div class="ml-4">
