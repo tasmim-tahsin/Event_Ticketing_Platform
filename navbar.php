@@ -41,8 +41,8 @@ if(isset($_SESSION['user'])){
       <ul class="flex space-x-6 text-gray-700 dark:text-gray-200 font-medium">
         <li><a href="./index.php" class="hover:text-blue-500">Home</a></li>
         <li><a href="./events.php" class="hover:text-blue-500">Events</a></li>
-        <li><a href="#" class="hover:text-blue-500">Contact</a></li>
-        <li><a href="#" class="hover:text-blue-500">About</a></li>
+        <li><a href="./contact_us.php" class="hover:text-blue-500">Contact Us</a></li>
+        <li><a href="./about.php" class="hover:text-blue-500">About</a></li>
       </ul>
     </div>
 
@@ -124,8 +124,8 @@ if(isset($_SESSION['user'])){
     <ul class="flex flex-col space-y-2 text-gray-700 dark:text-gray-200 font-medium">
       <li><a href="./index.php" class="hover:text-blue-500">Home</a></li>
       <li><a href="./events.php" class="hover:text-blue-500">Events</a></li>
-      <li><a href="#" class="hover:text-blue-500">Contact</a></li>
-      <li><a href="#" class="hover:text-blue-500">About</a></li>
+      <li><a href="./contact_us.php" class="hover:text-blue-500">Contact</a></li>
+      <li><a href="./about.php" class="hover:text-blue-500">About</a></li>
     </ul>
   </div>
 </nav>

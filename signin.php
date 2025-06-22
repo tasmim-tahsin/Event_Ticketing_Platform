@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <section class="bg-white dark:bg-gray-900">
     <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
         <form method="POST" class="w-full max-w-md">
-            <img class="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="">
+            <img class="w-auto h-10 sm:h-8" src="./images/logo2.png" alt="">
 
             <h1 class="mt-3 text-2xl font-semibold text-gray-800 capitalize sm:text-3xl dark:text-white">Sign In</h1>
 
@@ -110,9 +110,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="mx-2">Sign in with Google</span>
                 </a>
 
-                <div class="mt-6 text-center">
+                <div class="mt-6 text-center flex flex-col">
                     <a href="./signup.php" class="text-sm text-blue-500 hover:underline dark:text-blue-400">
                         Don’t have an account yet? Sign up
+                    </a>
+                    <a href="./forget_password.php" class="text-sm text-blue-500 hover:underline dark:text-blue-400">
+                        Forget Password?
                     </a>
                 </div>
             </div>

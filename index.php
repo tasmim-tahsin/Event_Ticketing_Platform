@@ -23,6 +23,8 @@ session_start();
     <section>
         <?php
             include "./upcomingevent.php";
+            include "./past_event.php";
+            include "./feature.php";
             include "./logos.php";
         ?>
     </section>

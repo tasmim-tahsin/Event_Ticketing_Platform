@@ -22,7 +22,7 @@ $cart = $_SESSION['event_cart'] ?? [];
     <h2 class=" text-center text-2xl font-bold my-4">🛒 Your Cart</h2>
 
   <?php if (empty($cart)): ?>
-    <p class="text-gray-500">Your cart is empty. <a href="events.php" class="text-blue-600 underline">Browse Events</a></p>
+    <p class="text-gray-500 text-center">Your cart is empty. <a href="events.php" class="text-blue-600 underline">Browse Events</a></p>
   <?php else: ?>
     <div class="space-y-4">
       <?php foreach ($cart as $event_id => $tickets): ?>

@@ -4,34 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Carousel</title>
-      <link href="./output.css" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(245, 245, 244, 1) 0%, rgba(255, 255, 255, 0) 50%, rgba(191, 219, 254, 0.3) 100%);
+    }
+    @media (max-width: 1023px) {
+      .hero-gradient {
+        background: linear-gradient(135deg, rgba(245, 245, 244, 1) 0%, rgba(191, 219, 254, 0.2) 100%);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="lg:flex px-10 bg-gradient-to-tl from-stone-100 via-transparent to-blue-200">
-        <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/3">
-            <div class="max-w-xl">
-                <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-gray-900 md:text-5xl md:tracking-tight">
-      Buy & Sale your <span class="block w-full bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent lg:inline">Event Tickets</span> in one single place
-    </h1>
+  <div class="hero-gradient w-full min-h-screen lg:min-h-[32rem] flex flex-col lg:flex-row px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+    <!-- Text Content -->
+    <div class="flex items-center justify-center w-full px-4 py-12 sm:py-16 lg:py-8 lg:w-1/2 xl:w-2/5">
+      <div class="max-w-md sm:max-w-xl mx-auto text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900">
+          Buy & Sell your 
+          <span class="block w-full bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent sm:inline">
+            Event Tickets
+          </span> 
+          in one place
+        </h1>
 
-                <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.</p>
+        <p class="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600">
+          Discover the best events in town or sell your extra tickets hassle-free. Your one-stop platform for all event ticketing needs.
+        </p>
 
-                <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
-                    <a href="#" class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-white transition-colors duration-300 transform bg-gray-900 rounded-md hover:bg-gray-700">Get Started</a>
-                    <a href="#" class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">See Events</a>
-                </div>
-            </div>
+        <div class="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10">
+          <a href="./events.php" class="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
+            Get Started
+          </a>
+          <a href="./about.php" class="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base font-medium text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2">
+            About Us
+          </a>
         </div>
-
-        <div class="w-full h-64 lg:w-2/3 lg:h-auto">
-           <?php
-            include "./carousel.php";
-           ?>
-        </div>
+      </div>
     </div>
-    <?php
-            include "./icons.php";
-           ?>
+
+    <!-- Carousel Section -->
+    <div class="w-full h-64 sm:h-80 md:h-96 lg:h-auto lg:w-1/2 xl:w-3/5 flex items-center justify-center px-4 pb-12 lg:pb-0">
+      <?php include "./carousel.php"; ?>
+    </div>
+  </div>
+
+  <?php include "./icons.php"; ?>
+
+  <script>
+    // Optional: Add intersection observer for scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeInUp');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('h1, p, .flex a').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
