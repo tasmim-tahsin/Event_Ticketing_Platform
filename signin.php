@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $stmt = $conn->prepare("SELECT id, name, email, phone, password, role FROM users WHERE email = ?");
+        // Include is_banned in the SELECT query
+        $stmt = $conn->prepare("SELECT id, name, email, phone, password, role, is_banned FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -26,19 +27,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
 
-            if (password_verify($password, $user['password'])) {
+            // Check if user is banned before verifying password
+            if ($user['is_banned']) {
+                $errors[] = "This account has been banned. Please contact support.";
+            } elseif (password_verify($password, $user['password'])) {
                 $_SESSION['user'] = [
-                    'id'    => $user['id'],
-                    'name'  => $user['name'],
-                    'email' => $user['email'],
-                    'phone' => $user['phone'],
-                    'role'  => $user['role']
+                    'id'       => $user['id'],
+                    'name'     => $user['name'],
+                    'email'    => $user['email'],
+                    'phone'    => $user['phone'],
+                    'role'     => $user['role'],
+                    'is_banned'=> $user['is_banned'] // Store banned status in session
                 ];
-                    if ($user['role'] === 'organizer') {
-                        $_SESSION['organizer'] =$_SESSION['user'] ;
-                    } else {
-                         $_SESSION['user'] = $_SESSION['user'];
-                    }
+
+                if ($user['role'] === 'organizer') {
+                    $_SESSION['organizer'] = $_SESSION['user'];
+                }
+
                 $redirectUrl = $_GET['redirect'] ?? 'index.php';
                 header("Location: " . $redirectUrl);
                 exit;
@@ -59,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
     <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <?php include "./navbar.php"; ?>
@@ -82,7 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="relative flex items-center mt-8">
                 <span class="absolute">
-                    <!-- Email icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -92,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="relative flex items-center mt-4">
                 <span class="absolute">
-                    <!-- Password icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
@@ -102,22 +106,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="mt-6">
                 <button type="submit" class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                    Sign In
+                    Sign In <i class="fa-solid fa-right-to-bracket ml-2"></i>
                 </button>
 
                 <p class="mt-4 text-center text-gray-600 dark:text-gray-400">or sign in with</p>
 
-                <a href="#" class="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <svg class="w-6 h-6 mx-2" viewBox="0 0 40 40">
-                        <!-- Google logo path here -->
-                        <!-- omitted for brevity -->
-                    </svg>
-                    <span class="mx-2">Sign in with Google</span>
+                <a href="./admin/admin_dashboard.php" class="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <span><i class="fa-solid fa-user-tie mr-2"></i>Sign in as Admin</span>
                 </a>
 
                 <div class="mt-6 text-center flex flex-col">
                     <a href="./signup.php" class="text-sm text-blue-500 hover:underline dark:text-blue-400">
-                        Don’t have an account yet? Sign up
+                        Don't have an account yet? Sign up
                     </a>
                     <a href="./forget_password.php" class="text-sm text-blue-500 hover:underline dark:text-blue-400">
                         Forget Password?

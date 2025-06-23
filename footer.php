@@ -33,8 +33,8 @@
     <div>
       <h4 class="text-white font-semibold mb-4">MORE INFO</h4>
       <ul class="space-y-2 text-gray-300">
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li><a href="./contact_us.php">Contact us</a></li>
+        <li><a href="./about.php">About Us</a></li>
       </ul>
     </div>
 
@@ -42,9 +42,9 @@
     <div>
       <h4 class="text-white font-semibold mb-4">LEGALS</h4>
       <ul class="space-y-2 text-gray-300">
-        <li><a href="#">Terms and Conditions</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Refund Policy</a></li>
+        <li><a href="./index.php">Terms and Conditions</a></li>
+        <li><a href="./index.php">Privacy Policy</a></li>
+        <li><a href="./index.php">Refund Policy</a></li>
       </ul>
     </div>
 
