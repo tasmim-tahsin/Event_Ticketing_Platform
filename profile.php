@@ -111,6 +111,9 @@ if ($is_organizer) {
         <i class="fa-solid fa-qrcode mr-2"></i> TICKIPASS
     </button>
     <?php if ($is_organizer): ?>
+        <button class="bg-red-500 text-white px-4 py-2 rounded">
+            <i class="fa-solid fa-circle-check mr-2"></i> <a href="./verify_ticket.php">Verify Ticket</a>
+        </button>
         <button class="bg-black text-white px-4 py-2 rounded">
             <i class="fa-solid fa-sliders mr-2"></i> <a href="./dashboard.php">Dashboard</a>
         </button>

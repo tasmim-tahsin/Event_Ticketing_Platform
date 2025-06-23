@@ -13,7 +13,7 @@ function generateTicketPDF($order_id, $event, $ticket, $user) {
     }
 
     // Generate QR Code
-    $qrData = "Order ID: $order_id | Name: {$user['name']} | Ticket: {$ticket['name']}";
+    $qrData = "order_id:$order_id|name:{$user['name']}|ticket:{$ticket['name']}|event:{$event['title']}|date:{$event['date']}";
     $qrFile = "$outputDir/qr_$order_id.png";
     QRcode::png($qrData, $qrFile, QR_ECLEVEL_L, 4);
 

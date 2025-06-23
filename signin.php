@@ -34,6 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'phone' => $user['phone'],
                     'role'  => $user['role']
                 ];
+                    if ($user['role'] === 'organizer') {
+                        $_SESSION['organizer'] =$_SESSION['user'] ;
+                    } else {
+                         $_SESSION['user'] = $_SESSION['user'];
+                    }
                 $redirectUrl = $_GET['redirect'] ?? 'index.php';
                 header("Location: " . $redirectUrl);
                 exit;

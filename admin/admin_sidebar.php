@@ -39,6 +39,11 @@
                     </li>
                     <?php endif; ?>
                     <li>
+                        <a href="../verify_ticket.php" class="flex items-center p-2 rounded hover:bg-blue-700">
+                            <i class="fa-solid fa-circle-check mr-3"></i> Verify Ticket
+                        </a>
+                    </li>
+                    <li>
                         <a href="admin_logout.php" class="flex items-center p-2 rounded hover:bg-blue-700">
                             <i class="fas fa-sign-out-alt mr-3"></i> Logout
                         </a>
