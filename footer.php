@@ -14,7 +14,7 @@
     <!-- Logo and Company Info -->
     <div>
       <div class="flex items-center gap-2 mb-2">
-        <img src="./images/logo2.png" alt="Logo" class="h-12  bg-white p-1 rounded">
+        <img src="./images/logo2.png" alt="Logo" class="h-12  bg-white px-2 rounded">
       </div>
       <p class="text-gray-300">A concern of CodeCrafts Limited.</p>
       <p class="mt-2 text-gray-400 text-xs">TRADE LICENSE: FFFFFFFFFFFFFFFF</p>

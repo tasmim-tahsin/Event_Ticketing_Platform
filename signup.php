@@ -64,17 +64,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link href="./output.css" rel="stylesheet"/>
 </head>
 <body>
-<?php include "./navbar.php"; ?>
+<nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
 <div class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl my-20">
   <div class="hidden lg:flex lg:w-1/2 relative bg-cover bg-center rounded-md overflow-hidden" style="background-image: url('./images/concert.webp');">
   <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+  <!-- <div class="absolute inset-0 bg-black bg-opacity-60"></div> -->
 
   <!-- Centered content -->
   <div class="relative z-10 m-auto text-center text-white px-4">
-    <h1 class="text-3xl md:text-4xl font-bold font-[Orbitron] mb-4 leading-tight">Get Your Desired Event Pass!</h1>
-    <a href="./events.php" class="inline-block px-6 py-2 bg-[#003C2F] hover:bg-[#00291f] text-white font-semibold rounded shadow-md transition">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Get Your Desired Event Pass!</h1>
+    <a href="./events.php" class="inline-block px-6 py-2 bg-purple-700 hover:bg-purple-800 text-white font-semibold rounded shadow-md transition">
       Explore <i class="fa-solid fa-forward ml-2"></i>
     </a>
   </div>
@@ -120,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="checkbox" name="terms" id="terms" class="h-4 w-4 border rounded mr-2" <?= isset($_POST['terms']) ? 'checked' : '' ?>>
         <label for="terms" class="text-sm text-slate-600">Agree with our <a href="#" class=" underline">terms and conditions</a></label>
       </div>
-      <button type="submit" class="w-full bg-slate-800 text-white py-2 rounded hover:bg-slate-700 transition">Sign Up</button>
+      <button type="submit" class="w-full bg-purple-800 text-white py-2 rounded hover:bg-purple-900 transition">Sign Up</button>
       <p class="text-sm text-center text-slate-600 mt-2">Already have an account?
         <a href="./signin.php" class="text-slate-800 font-semibold underline">Sign in</a>
       </p>

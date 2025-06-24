@@ -61,7 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-<?php include "navbar.php"; ?>
+<nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 <div  class="text-center p-5 my-5 bg-amber-50 rounded-md max-w-4xl mx-auto">
         <h1 class="text-3xl font-bold">Edit Profile</h1>
         <p>Here, you can update your username, full name, phone number, email address, and profile image. Please ensure all information is accurate before saving changes.</p>

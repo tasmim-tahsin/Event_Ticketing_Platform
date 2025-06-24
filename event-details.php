@@ -1,6 +1,5 @@
 <?php
 session_start();
-include "./navbar.php";
 include "./DB/database.php";
 $id = $_GET['id'] ?? 0;
 
@@ -56,6 +55,11 @@ if (!$row) {
 
 </head>
 <body class="bg-gray-100">
+  <nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
 <div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
   <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class="w-full h-full object-cover rounded-md mb-6">
@@ -150,7 +154,7 @@ if (!$row) {
               Sold Out!
             </button>
           <?php else: ?>
-            <button class="mt-auto bg-slate-800 text-white py-1.5 px-4 rounded hover:bg-slate-700 transition">
+            <button type="button" <?= $disabled ?> class="mt-auto bg-slate-800 text-white py-1.5 px-4 rounded hover:bg-slate-700 transition">
               <a href="addticket.php?event_id=<?= $row['id'] ?>&ticket_id=<?= $ticket['id'] ?>" >Buy Now</a>
             </button>
           <?php endif; ?>

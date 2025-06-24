@@ -67,12 +67,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<?php include "./navbar.php"; ?>
+    <nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
 <section class="bg-white dark:bg-gray-900">
     <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
         <form method="POST" class="w-full max-w-md">
-            <img class="w-auto h-10 sm:h-8" src="./images/logo2.png" alt="">
+            <div class="flex items-center justify-center">
+                <img class="w-auto h-12 lg:h-20" src="./images/logo2.png" alt="logo">
+
+            </div>
 
             <h1 class="mt-3 text-2xl font-semibold text-gray-800 capitalize sm:text-3xl dark:text-white">Sign In</h1>
 
@@ -105,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="mt-6">
-                <button type="submit" class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                <button type="submit" class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white bg-purple-500 rounded-lg hover:bg-purple-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                     Sign In <i class="fa-solid fa-right-to-bracket ml-2"></i>
                 </button>
 

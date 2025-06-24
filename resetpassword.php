@@ -2,7 +2,6 @@
 session_start();
 include "DB/database.php";
 include "auth.php";
-include "./navbar.php";
 
 $user = $_SESSION['user'];
 $user_id = $user['id'];
@@ -59,10 +58,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link href="./output.css" rel="stylesheet">
 </head>
 <body>
-
-<div class="bg-white p-10 rounded shadow-md w-full max-w-xl mx-auto text-center mt-5">
+<nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
+<div class="bg-white p-10 rounded shadow-md w-full max-w-xl mx-auto text-center my-10">
     <h2 class="text-2xl font-bold mb-2">Update Password</h2>
-    <p class="text-sm text-gray-600 mb-6">We’ve sent a code to <strong><?= htmlspecialchars($user['email']) ?></strong>. The code expires shortly, so please enter it soon.</p>
+    <p class="text-sm text-gray-600 mb-6">If you forgot your current password then reset your password using <strong><?= htmlspecialchars($user['email']) ?></strong> this email from <a href="./signin.php" class='underline'>Sign In</a> page</p>
 
     <?php if ($success): ?>
         <div class="bg-green-100 text-green-800 p-3 rounded mb-4">✅ Password updated successfully. Redirecting...</div>
@@ -102,6 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <li>Your password can’t be a commonly used password.</li>
     </ul>
 </div>
-
+                    <?php
+            include "./footer.php";
+        ?>
 </body>
 </html>

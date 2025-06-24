@@ -110,7 +110,11 @@ if (!empty($verification_data)) {
     </style>
 </head>
 <body class="bg-gray-50">
-    <?php include "./navbar.php"; ?>
+    <nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
     <div class="max-w-4xl mx-auto p-6">
         <div class="bg-white rounded-lg shadow-md p-6">

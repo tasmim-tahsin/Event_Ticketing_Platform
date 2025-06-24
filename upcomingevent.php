@@ -20,8 +20,8 @@
 </head>
 <body>
     <div class="text-center my-10 mt-10 mb-6">
-        <h1 class="text-3xl font-bold">Explore Live Events!</h1>
-        <h3 class="text-lg mt-3 text-gray-600">Explore the Universe of Events at Your Fingertips.</h3>
+        <h1 class="text-3xl sm:text-4xl font-bold ">Explore <span class="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Live Events!</span></h1>
+        <h3 class="text-xl mt-3 text-gray-600">Explore the Universe of Events at Your Fingertips.</h3>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6 lg:mx-40" id="eventContainer">
@@ -39,7 +39,7 @@
                 <div class="p-4">
                     <h2 class="text-lg font-bold text-gray-900"><?= htmlspecialchars($row['title']) ?></h2>
                     <div class="flex items-center gap-3 mt-3">
-                        <div class="bg-black text-white rounded-md px-3 py-2 text-center">
+                        <div class="bg-gradient-to-r from-indigo-700 to-purple-800 text-white rounded-md px-3 py-2 text-center">
                             <?php
                                 $eventDate = date('d M', strtotime($row['date'])); 
                                 $parts = explode(' ', $eventDate);
@@ -49,11 +49,11 @@
                         </div>
                         <div class="flex flex-col gap-1 text-sm text-gray-700">
                             <div class="flex items-center gap-1">
-                                <i class="fa-solid fa-location-dot" style="color: #74C0FC;"></i>
+                                <i class="fa-solid fa-location-dot" style="color: #8e44ad;"></i>
                                 <span><?= htmlspecialchars($row['location']) ?></span>
                             </div>
                             <div class="flex items-center gap-1">
-                                <i class="fa-solid fa-tag" style="color: #74C0FC;"></i>
+                                <i class="fa-solid fa-tag" style="color: #8e44ad;"></i>
                                 <span>Price starts from <i class="fa-solid fa-bangladeshi-taka-sign mx-1"></i><?= htmlspecialchars($row['price']) ?></span>
                             </div>
                         </div>

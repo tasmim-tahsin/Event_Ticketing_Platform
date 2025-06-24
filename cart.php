@@ -14,9 +14,11 @@ $cart = $_SESSION['event_cart'] ?? [];
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <?php
-    include "./navbar.php";
-    ?>
+    <nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
 <div class=" max-w-full lg:max-w-1/2 mx-auto">
     <h2 class=" text-center text-2xl font-bold my-4">🛒 Your Cart</h2>

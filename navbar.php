@@ -30,7 +30,7 @@ if(isset($_SESSION['user'])){
         </svg>
       </button>
     <!-- Left: Logo -->
-    <div class="flex-shrink-0">
+    <div class="flex-shrink-0 lg:ml-10">
       <a href="./index.php">
         <img class="w-auto h-10 sm:h-10" src="./images/logo.png" alt="Logo">
       </a>
@@ -39,10 +39,10 @@ if(isset($_SESSION['user'])){
     <!-- Center: Navigation Links -->
     <div class="hidden md:flex justify-center flex-1">
       <ul class="flex space-x-6 text-gray-700 dark:text-gray-200 font-medium">
-        <li><a href="./index.php" class="hover:text-blue-500">Home</a></li>
-        <li><a href="./events.php" class="hover:text-blue-500">Events</a></li>
-        <li><a href="./contact_us.php" class="hover:text-blue-500">Contact Us</a></li>
-        <li><a href="./about.php" class="hover:text-blue-500">About</a></li>
+        <li><a href="./index.php" class="hover:text-purple-700">Home</a></li>
+        <li><a href="./events.php" class="hover:text-purple-700">Events</a></li>
+        <li><a href="./contact_us.php" class="hover:text-purple-700">Contact Us</a></li>
+        <li><a href="./about.php" class="hover:text-purple-700">About</a></li>
       </ul>
     </div>
 
@@ -62,7 +62,7 @@ if(isset($_SESSION['user'])){
         </path>
     </svg>
     <!-- Dynamic Badge -->
-    <span id="cart-badge" class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+    <span id="cart-badge" class="absolute -top-2 -right-2 bg-purple-700 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
 </a>
 
       <!-- </button> -->
@@ -110,7 +110,7 @@ if(isset($_SESSION['user'])){
     </div>
   <?php else: ?>
     <!-- Sign In Button -->
-    <button class="font-semibold rounded-md bg-blue-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 hover:bg-blue-700 ml-2">
+    <button class="font-semibold rounded-md bg-purple-700 py-2 px-6 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-purple-700 hover:bg-purple-800 md:mx-10">
       <a href="./signin.php">Sign In</a>
     </button>
   <?php endif; ?>
@@ -122,10 +122,10 @@ if(isset($_SESSION['user'])){
   <!-- Mobile Menu -->
   <div x-show="isOpen" x-transition class="md:hidden px-6 pb-4">
     <ul class="flex flex-col space-y-2 text-gray-700 dark:text-gray-200 font-medium">
-      <li><a href="./index.php" class="hover:text-blue-500">Home</a></li>
-      <li><a href="./events.php" class="hover:text-blue-500">Events</a></li>
-      <li><a href="./contact_us.php" class="hover:text-blue-500">Contact</a></li>
-      <li><a href="./about.php" class="hover:text-blue-500">About</a></li>
+      <li><a href="./index.php" class="hover:text-purple-700">Home</a></li>
+      <li><a href="./events.php" class="hover:text-purple-700">Events</a></li>
+      <li><a href="./contact_us.php" class="hover:text-purple-700">Contact</a></li>
+      <li><a href="./about.php" class="hover:text-purple-700">About</a></li>
     </ul>
   </div>
 </nav>

@@ -42,7 +42,8 @@ if (isset($_GET['remove_ticket_id'])) {
 
 // Fetch tickets for this event
 $ticketsResult = mysqli_query($conn, "SELECT * FROM tickets WHERE event_id = $event_id");
-
+$tickets = mysqli_fetch_assoc($ticketsResult);
+$tqty = $tickets['quantity'];
 // Cart details
 $cart = $_SESSION['event_cart'][$event_id];
 $ticketDetails = [];
@@ -71,13 +72,18 @@ if (!empty($cart)) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<?php include "./navbar.php"; ?>
+<nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
 <!-- Event Top Header -->
-<div class="bg-[#003C2F] text-white p-6 mb-8 rounded-md flex flex-col md:flex-row justify-between items-center gap-6 max-w-6xl mx-auto">
+<div class="bg-gradient-to-r from-indigo-700 to-purple-800 text-white p-6 mb-8 rounded-md flex flex-col md:flex-row justify-between items-center gap-6 max-w-6xl mx-auto">
   <div class="md:w-2/3">
     <h1 class="text-2xl md:text-3xl font-bold">Buy Tickets for <?= htmlspecialchars($event['title']) ?>:<?= $event['id'] ?></h1>
     <p class="mt-2 text-sm text-gray-200">Each user can buy <span class="text-yellow-400 font-bold">10</span> tickets. You can add <span class="text-green-400 font-bold"><?= 10 - array_sum($cart) ?></span> more tickets.</p>
+    <p class="mt-2 text-sm text-gray-200">Available Tickets <span class="text-green-400 font-bold"><?php echo"$tqty" ?></span></p>
   </div>
   <div class="md:w-1/3">
     <img src="<?= htmlspecialchars($event['image']) ?>" alt="Event Image" class="w-full rounded-lg shadow-md max-h-28 object-cover border border-white">
@@ -93,7 +99,7 @@ if (!empty($cart)) {
       <div class="border p-4 rounded-md <?= $soldOut ? 'bg-red-100' : 'bg-gray-50' ?>">
         <div class="flex items-center justify-between">
           <h2 class="text-lg font-bold"><?= htmlspecialchars($ticket['name']) ?></h2>
-          <span class="text-yellow-600 font-semibold bg-yellow-100 px-2 py-1 rounded text-sm">৳<?= number_format($ticket['price']) ?></span>
+          <span class="text-black font-bold bg-green-100 px-2 py-1 rounded text-lg">৳<?= number_format($ticket['price']) ?></span>
         </div>
         <?php if (!empty($ticket['benefits'])): ?>
           <div class="text-sm text-gray-600 mt-2"><?= nl2br(htmlspecialchars($ticket['benefits'])) ?></div>

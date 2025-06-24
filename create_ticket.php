@@ -44,7 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-<?php include 'navbar.php'; ?>
+<nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
 <div class="max-w-2xl mx-auto p-6">
     <h1 class="text-2xl font-bold mb-6">Create New Ticket</h1>

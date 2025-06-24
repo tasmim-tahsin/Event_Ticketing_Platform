@@ -55,10 +55,11 @@ if ($is_organizer) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <?php
-        
-        include "./navbar.php";
-    ?>
+    <nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
     
     <div class="max-w-6xl mx-auto px-6 py-8">
     <div class="bg-white p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between">

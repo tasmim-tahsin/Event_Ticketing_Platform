@@ -45,7 +45,7 @@
     <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-                Our <span class="gradient-text">Offerings</span>
+                Our <span class="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Offerings</span>
             </h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                 Explore the key features that make Tickify the perfect choice for event organizers!
@@ -154,7 +154,7 @@
     <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto bg-white">
         <div class="text-center mb-12">
             <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                <span class="gradient-text">FAQs</span>
+                <span class="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">FAQs</span>
             </h2>
             <p class="text-xl text-gray-600">
                 Our FAQs are here to help you get the most out of TicketKing

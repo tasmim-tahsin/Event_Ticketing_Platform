@@ -59,7 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reset_password'])) {
 </head>
 <body>
     <!-- Navbar -->
-    <?php include "./navbar.php"; ?>
+    <nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
 
     <main class="flex-grow flex items-center justify-center p-4">
         <div class="w-full max-w-md">

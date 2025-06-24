@@ -66,8 +66,8 @@ $row2 = array_slice($events, 4, 4);
 <body class="bg-gray-50">
     <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Flagship Events in Review</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"><span class="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Flagship Events</span> in Review</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                 We're proud to showcase the success of our previous flagship events, where TicketKing provided exceptional ticketing solutions from start to finish.
             </p>
         </div>

@@ -1,6 +1,5 @@
 <?php 
 session_start();
-include "./navbar.php";
 include "./DB/database.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +9,12 @@ include "./DB/database.php"; ?>
   <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-<div class="text-center mt-6 bg-black text-white max-w-6xl mx-auto rounded-md py-3">
+  <nav class="sticky top-0 z-50">
+        <?php
+            include "./navbar.php";
+        ?>
+    </nav>
+<div class="text-center mt-6 bg-gradient-to-r from-indigo-700 to-purple-800 text-white max-w-6xl mx-auto rounded-md py-3">
         <h1 class="text-3xl font-bold">Explore Live Events!</h1>
         <h3 class="text-lg mt-3">Explore the Universe of Events at Your Fingertips.</h3>
     </div>
@@ -35,9 +39,9 @@ include "./DB/database.php"; ?>
     </select>
 
     <div class="flex gap-4 items-center text-sm">
-      <label><input type="radio" name="status" value="" class="radio radio-success" checked> All</label>
-      <label><input type="radio" name="status" value="live" class="radio radio-success"> Live</label>
-      <label><input type="radio" name="status" value="upcoming" class="radio radio-info"> Upcoming</label>
+      <label><input type="radio" name="status" value="" class="radio radio-neutral" checked> All</label>
+      <label><input type="radio" name="status" value="live" class="radio radio-neutral"> Live</label>
+      <label><input type="radio" name="status" value="upcoming" class="radio radio-neutral"> Upcoming</label>
     </div>
   </div>
 

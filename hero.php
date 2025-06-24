@@ -24,7 +24,7 @@
       <div class="max-w-md sm:max-w-xl mx-auto text-center lg:text-left">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900">
           Buy & Sell your 
-          <span class="block w-full bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent sm:inline">
+          <span class="block w-full bg-gradient-to-br from-blue-400 to-purple-700 bg-clip-text text-transparent sm:inline">
             Event Tickets
           </span> 
           in one place
@@ -35,10 +35,10 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10">
-          <a href="./events.php" class="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
+          <a href="./events.php" class="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base font-medium text-white bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
             Get Started
           </a>
-          <a href="./about.php" class="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base font-medium text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2">
+          <a href="./about.php" class="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base font-medium text-gray-900 bg-slate-100 rounded-lg hover:bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2">
             About Us
           </a>
         </div>
