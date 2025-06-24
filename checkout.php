@@ -178,18 +178,19 @@ if (!empty($cart)) {
             <div class="space-y-2">
               <label class="payment-method block">
                 <input type="radio" name="payment_method" value="bkash" class="mr-2" checked>
-                <img src="assets/bkash.png" alt="bKash" class="h-6 inline mr-2">
+                <img src="./images/bkash.png" alt="bKash" class="h-10 inline mr-2">
                 bKash
               </label>
               <label class="payment-method block">
                 <input type="radio" name="payment_method" value="nagad" class="mr-2">
-                <img src="assets/nagad.png" alt="Nagad" class="h-6 inline mr-2">
+                <img src="./images/nagad.png" alt="Nagad" class="h-10 inline mr-2">
                 Nagad
               </label>
               <label class="payment-method block">
                 <input type="radio" name="payment_method" value="card" class="mr-2">
-                <i class="fab fa-cc-visa text-blue-500 mr-2"></i>
-                <i class="fab fa-cc-mastercard text-red-500 mr-2"></i>
+                <!-- <i class="fab fa-cc-visa text-blue-500 mr-2"></i>
+                <i class="fab fa-cc-mastercard text-red-500 mr-2"></i> -->
+                <img src="./images/card.png" alt="card" class="h-10 inline mr-2">
                 Credit/Debit Card
               </label>
             </div>

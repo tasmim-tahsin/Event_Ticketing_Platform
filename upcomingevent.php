@@ -24,7 +24,7 @@
         <h3 class="text-xl mt-3 text-gray-600">Explore the Universe of Events at Your Fingertips.</h3>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6 lg:mx-40" id="eventContainer">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 lg:mx-40" id="eventContainer">
         <?php foreach ($events as $index => $row): ?>
           <a href="event-details.php?id=<?= $row['id'] ?>" class="block hover:shadow-lg transition-shadow duration-300">
   <!-- entire card inside -->
