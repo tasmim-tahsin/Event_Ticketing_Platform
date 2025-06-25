@@ -8,7 +8,10 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 
 ### 🎭 Event Management
 <div align="center">
-  <img src="https://i.imgur.com/5XwQYnR.png" width="800" alt="Event Management">
+  <img src="https://i.ibb.co/SwKJ3yzH/460shots-so.png"" width="800" alt="Event Management">
+  <img src="https://i.ibb.co/xScDrmz5/532shots-so.png"" width="800" alt="Event Management">
+  
+  
 </div>
 
 - **Organizer Dashboard**: Create, edit, and manage events with rich details
@@ -18,7 +21,8 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 
 ### 🎟️ Ticketing System
 <div align="center">
-  <img src="https://i.imgur.com/8nKl5Oz.png" width="800" alt="Ticketing System">
+  <img src="https://i.ibb.co/9HHL0GFG/119shots-so.png" width="800" alt="Ticketing System">
+  <img src="https://i.ibb.co/ynMML55w/514shots-so.png" width="800" alt="Ticketing System">
 </div>
 
 - **Multiple Ticket Types**: VIP, Regular, Student options
@@ -28,7 +32,7 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 
 ### 🔐 User System
 <div align="center">
-  <img src="https://i.imgur.com/mVJZ4lD.png" width="800" alt="User System">
+  <img src="https://i.ibb.co/ycWY2Lns/45shots-so.png" width="800" alt="User System">
 </div>
 
 - **Role-Based Access**: Attendees, Organizers, and Admins
@@ -38,7 +42,7 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 
 ### 💳 Payment Processing
 <div align="center">
-  <img src="https://i.imgur.com/LkQqW3x.png" width="800" alt="Payment Processing">
+  <img src="https://i.ibb.co/Gf5zSTTf/989shots-so.png" width="800" alt="Payment Processing">
 </div>
 
 - **Multiple Payment Methods**: Bkash, Nagad, Visa, Mastercard
@@ -114,6 +118,12 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 
 | Feature | Preview |
 |---------|---------|
+| **Homepage** | <img src="https://i.imgur.com/JxQZ3Fj.png" width="400"> |
+| **Event Page** | <img src="https://i.imgur.com/5XwQYnR.png" width="400"> |
+| **Admin Dashboard** | <img src="https://i.imgur.com/mVJZ4lD.png" width="400"> |
+| **Homepage** | <img src="https://i.imgur.com/JxQZ3Fj.png" width="400"> |
+| **Event Page** | <img src="https://i.imgur.com/5XwQYnR.png" width="400"> |
+| **Admin Dashboard** | <img src="https://i.imgur.com/mVJZ4lD.png" width="400"> |
 | **Homepage** | <img src="https://i.imgur.com/JxQZ3Fj.png" width="400"> |
 | **Event Page** | <img src="https://i.imgur.com/5XwQYnR.png" width="400"> |
 | **Admin Dashboard** | <img src="https://i.imgur.com/mVJZ4lD.png" width="400"> |
