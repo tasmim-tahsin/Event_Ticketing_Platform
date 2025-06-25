@@ -3,7 +3,7 @@ Here's a stunning `README.md` file for your GitHub repository with a modern UI d
 
 # 🎟️ TicketKing - Event Ticketing Platform
 
-![TicketKing Banner](https://i.imgur.com/JxQZ3Fj.png)
+![TicketKing Banner](https://imgur.com/QtjmFF8)
 
 TicketKing is a comprehensive event ticketing platform that connects event organizers with attendees through a seamless, secure, and user-friendly interface.
 
