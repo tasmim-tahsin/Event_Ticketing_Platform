@@ -1,6 +1,3 @@
-Here's a stunning `README.md` file for your GitHub repository with a modern UI design:
-
-
 # 🎟️ TicketKing - Event Ticketing Platform
 
 ![TicketKing Banner](https://imgur.com/QtjmFF8)
