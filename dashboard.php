@@ -45,6 +45,18 @@ $organizer_id = $_SESSION['user']['id'];
             background-color: #6B7280;
             color: white;
         }
+        .admin-status-pending {
+            background-color: yellow;
+            color: white;
+        }
+        .admin-status-approved {
+            background-color: #10B981;
+            color: white;
+        }
+        .admin-status-rejected {
+            background-color: red;
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -81,12 +93,14 @@ $organizer_id = $_SESSION['user']['id'];
             $events = mysqli_query($conn, "SELECT * FROM events WHERE organizer_id = $organizer_id ORDER BY date DESC");
             while ($event = mysqli_fetch_assoc($events)) {
                 $status_class = "status-" . $event['status'];
+                $admin_status_class = "admin-status-" . $event['admin_status'];
                 echo '
                 <div class="event-card bg-white overflow-hidden shadow rounded-lg border border-gray-200">
                     <div class="px-4 py-5 sm:p-6">
                         <div class="flex items-start justify-between">
                             <div>
                                 <span class="status-badge ' . $status_class . '">' . ucfirst($event['status']) . '</span>
+                                <span class="status-badge ' . $admin_status_class . '">' . ucfirst($event['admin_status']) . '</span>
                             </div>
                             <div class="flex space-x-2">
                                 <a href="edit_event.php?id=' . $event['id'] . '" class="text-blue-500 hover:text-blue-700">

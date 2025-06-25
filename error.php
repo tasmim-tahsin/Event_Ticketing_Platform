@@ -9,8 +9,7 @@
 </head>
 <body>
     <?php
-    session_start();
-    include "./navbar.php";
+    include "navbar.php";
     ?>
     <main class="grid min-h-full place-items-center h-screen w-screen bg-gradient-to-tl from-stone-100 via-transparent to-blue-200 px-6 py-24 sm:py-32 lg:px-8">
   <div class="text-center">
@@ -24,7 +23,7 @@
   </div>
 </main>
 <?php
-    include "./footer.php";
+    include "footer.php";
     ?>
 </body>
 </html>

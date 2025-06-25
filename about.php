@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About TicketKing</title>
+    <title>About - TicketKing</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -208,7 +208,7 @@
         <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto p-8">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">About TicketKing</h2>
             <p class="text-gray-600 mb-4">
-                TicketKing is a comprehensive event ticketing platform designed to streamline the process of event management and ticket purchasing. The platform offers:
+                TicketKing is a comprehensive event ticketing platform designed to streamline the process of event management and ticket purchasing. TicketKing is inspired from <a href="https://tickify.live/" class="underline font-bold">tickify.live</a> .The platform offers:
             </p>
             <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-6">
                 <li>Seamless event creation and management for organizers</li>

@@ -152,7 +152,7 @@ if (!$result) {
                                                ($event['admin_status'] === 'rejected' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800') ?>">
                                             <?= ucfirst($event['admin_status']) ?>
                                         </span>
-                                        <span class="mt-1 block px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                        <span class="mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                             <?= $event['status'] === 'live' ? 'bg-blue-100 text-blue-800' : 
                                                ($event['status'] === 'past' ? 'bg-gray-100 text-gray-800' : 'bg-purple-100 text-purple-800') ?>">
                                             <?= ucfirst($event['status']) ?>
@@ -163,10 +163,20 @@ if (!$result) {
                                         <form method="POST" class="inline">
                                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                                             <button type="submit" name="approve_event" class="text-green-600 hover:text-green-900 mr-3">Approve</button>
-                                            <button type="submit" name="reject_event" class="text-red-600 hover:text-red-900">Reject</button>
+                                            <button type="submit" name="reject_event" class="text-red-600 hover:text-red-900 mr-3">Reject</button>
                                         </form>
                                         <?php endif; ?>
-                                        <a href="event_detail.php?id=<?= $event['id'] ?>" class="text-blue-600 hover:text-blue-900">View</a>
+                                        <?php if ($event['admin_status'] === 'rejected'): ?>
+                                        <form method="POST" class="inline">
+                                            <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
+                                            <button type="submit" name="approve_event" class="text-green-600 hover:text-green-900 mr-3">Approve</button>
+                                        </form>
+                                        <?php endif; ?>
+                                        <form method="POST" class="inline">
+                                            <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
+                                            <button type="submit" name="reject_event" class="text-red-600 hover:text-red-900 mr-3">Reject</button>
+                                        </form>
+                                        <a href="../event-details.php?id=<?= $event['id'] ?>" class="text-blue-600 hover:text-blue-900">View</a>
                                         <a href="admin_edit_event.php?id=<?= $event['id'] ?>" class="ml-2 text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
                                 </tr>
