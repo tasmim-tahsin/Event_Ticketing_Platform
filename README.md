@@ -1,6 +1,6 @@
 # 🎟️ TicketKing - Event Ticketing Platform
 
-![TicketKing Banner](https://imgur.com/QtjmFF8)
+![TicketKing Banner](https://i.ibb.co/G4htQ6HP/920shots-so.png)
 
 TicketKing is a comprehensive event ticketing platform that connects event organizers with attendees through a seamless, secure, and user-friendly interface.
 
