@@ -21,8 +21,9 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 
 ### 🎟️ Ticketing System
 <div align="center">
-  <img src="https://i.ibb.co/9HHL0GFG/119shots-so.png" width="800" alt="Ticketing System">
+  <img src="https://i.ibb.co/YxkXq4S/119shots-so.png" alt="119shots-so" width="800">
   <img src="https://i.ibb.co/ynMML55w/514shots-so.png" width="800" alt="Ticketing System">
+<!--   [https://i.ibb.co/YxkXq4S/119shots-so.png](https://ibb.co/xNjYRKb) -->
 </div>
 
 - **Multiple Ticket Types**: VIP, Regular, Student options
