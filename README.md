@@ -1,6 +1,6 @@
 # 🎟️ TicketKing - Event Ticketing Platform
 
-<img src="https://i.ibb.co/Fk6ZpPWp/644-1x-shots-so.png" alt="banner" border="0">
+<img src="https://i.ibb.co/bMbWqZks/Screenshot-2025-06-25-193524.png" alt="banner" border="0">
 
 TicketKing is a comprehensive event ticketing platform that connects event organizers with attendees through a seamless, secure, and user-friendly interface.
 
@@ -119,9 +119,9 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 
 | Feature | Preview |
 |---------|---------|
-| **Homepage** | <img src="https://i.imgur.com/JxQZ3Fj.png" width="400"> |
-| **Event Page** | <img src="https://i.imgur.com/5XwQYnR.png" width="400"> |
-| **Admin Dashboard** | <img src="https://i.imgur.com/mVJZ4lD.png" width="400"> |
+| **Homepage** | <img src="https://i.ibb.co/n8P0CmR7/427shots-so.png" width="400"> |
+| **Live Event Page** | <img src="https://i.ibb.co/ccnwbVKZ/306shots-so.png" width="400"> |
+| **Events in Review page** | <img src="https://i.ibb.co/qSScdxm/528shots-so.png" width="400"> |
 | **Homepage** | <img src="https://i.imgur.com/JxQZ3Fj.png" width="400"> |
 | **Event Page** | <img src="https://i.imgur.com/5XwQYnR.png" width="400"> |
 | **Admin Dashboard** | <img src="https://i.imgur.com/mVJZ4lD.png" width="400"> |
