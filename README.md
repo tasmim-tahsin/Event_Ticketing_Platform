@@ -2,7 +2,7 @@
 
 <img src="https://i.ibb.co/bMbWqZks/Screenshot-2025-06-25-193524.png" alt="banner" border="0">
 
-TicketKing is a comprehensive event ticketing platform that connects event organizers with attendees through a seamless, secure, and user-friendly interface.
+TicketKing is a comprehensive event ticketing platform that connects event organizers with attendees through a seamless, secure and user-friendly interface.
 
 ## 🌟 Features
 
