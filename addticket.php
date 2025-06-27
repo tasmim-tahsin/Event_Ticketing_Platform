@@ -81,7 +81,7 @@ if (!empty($cart)) {
 <!-- Event Top Header -->
 <div class="bg-gradient-to-r from-indigo-700 to-purple-800 text-white p-6 mb-8 rounded-md flex flex-col md:flex-row justify-between items-center gap-6 max-w-6xl mx-auto">
   <div class="md:w-2/3">
-    <h1 class="text-2xl md:text-3xl font-bold">Buy Tickets for <?= htmlspecialchars($event['title']) ?>:<?= $event['id'] ?></h1>
+    <h1 class="text-2xl md:text-3xl font-bold">Buy Tickets for <?= htmlspecialchars($event['title']) ?></h1>
     <p class="mt-2 text-sm text-gray-200">Each user can buy <span class="text-yellow-400 font-bold">10</span> tickets. You can add <span class="text-green-400 font-bold"><?= 10 - array_sum($cart) ?></span> more tickets.</p>
     <p class="mt-2 text-sm text-gray-200">Available Tickets <span class="text-green-400 font-bold"><?php echo"$tqty" ?></span></p>
   </div>

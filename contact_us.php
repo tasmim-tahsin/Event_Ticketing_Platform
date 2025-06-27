@@ -19,6 +19,7 @@
     <!-- Header/Navbar would go here -->
      <nav class="sticky top-0 z-50">
         <?php
+            session_start();
             include "./navbar.php";
         ?>
     </nav>

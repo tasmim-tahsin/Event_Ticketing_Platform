@@ -16,7 +16,7 @@ if(isset($_SESSION['user'])){
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-<nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
+<nav x-data="{ isOpen: false }" class="relative backdrop-blur-[200px] shadow dark:bg-gray-800">
   <div class="container mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Mobile menu button -->
       <button @click="isOpen = !isOpen" class="md:hidden text-gray-600 dark:text-gray-200 focus:outline-none">
@@ -32,7 +32,7 @@ if(isset($_SESSION['user'])){
     <!-- Left: Logo -->
     <div class="flex-shrink-0 lg:ml-10">
       <a href="./index.php">
-        <img class="w-auto h-10 sm:h-10" src="./images/logo.png" alt="Logo">
+        <img class="w-auto h-10 sm:h-10" src="./images/logo2.png" alt="Logo">
       </a>
     </div>
 

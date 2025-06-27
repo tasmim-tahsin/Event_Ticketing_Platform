@@ -172,10 +172,13 @@ if (!$result) {
                                             <button type="submit" name="approve_event" class="text-green-600 hover:text-green-900 mr-3">Approve</button>
                                         </form>
                                         <?php endif; ?>
+                                        <?php if ($event['admin_status'] === 'approved'): ?>
                                         <form method="POST" class="inline">
                                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
+                                            <!-- <button type="submit" name="approve_event" class="text-green-600 hover:text-green-900 mr-3">Approve</button> -->
                                             <button type="submit" name="reject_event" class="text-red-600 hover:text-red-900 mr-3">Reject</button>
                                         </form>
+                                        <?php endif; ?>
                                         <a href="../event-details.php?id=<?= $event['id'] ?>" class="text-blue-600 hover:text-blue-900">View</a>
                                         <a href="admin_edit_event.php?id=<?= $event['id'] ?>" class="ml-2 text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
