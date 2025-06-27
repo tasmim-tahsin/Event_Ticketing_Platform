@@ -19,11 +19,67 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 - **QR Code Tickets**: Secure digital tickets with unique QR codes
 - **Event Approval System**: Admin approval workflow for new events
 
+
+## 👑 Admin Dashboard
+
+<div align="center">
+  <img src="https://i.ibb.co/sv0D8bNs/238shots-so.png" width="800" alt="Admin Dashboard Preview">
+  <br><br>
+</div>
+
+TicketKing's powerful admin dashboard provides complete control over the platform with these features:
+
+### 🔍 Key Features
+
+| Feature | Description
+|---------|------------|
+| **User Management** | Ban/unban users, view activity logs, manage profiles
+| **Event Moderation** | Approve/reject events, edit event details
+| **Analytics** | View platform growth metrics and revenue reports
+| **Content Control** | Manage all platform content and media
+
+### 🛡️ Admin Privileges
+
+```diff
++ Super Admin: Full system access including admin management
++ Admin: User/event moderation and content management
++ Moderator: Basic content approval capabilities
+```
+
+### 🧩 Components Breakdown
+
+1. **Navigation Sidebar**
+   - Role-based menu items
+   - Quick access to all sections
+   - Collapsible design
+
+2. **Data Visualization**
+   - Data in pie and bar chart
+   - Quick access to all sections
+   - Collapsible design
+
+3. **Quick Actions**
+   - 🚀 Approve pending events
+   - ⚠️ Review flagged content
+   - 📊 Generate reports
+
+
+### 🔐 Security Features
+- Role-based access control (RBAC)
+- Session timeout after 30 minutes
+- All actions logged for audit trails
+
+<div align="center">
+  <img src="https://i.ibb.co/ccRYf4kw/208shots-so.png" width="600" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 20px 0;">
+  <p><em>Admin Dashboard Interface</em></p>
+</div>
+```
+
 ### 🎟️ Ticketing System
 <div align="center">
-  <img src="https://i.ibb.co/YxkXq4S/119shots-so.png" alt="119shots-so" width="800">
+  <img src="https://i.ibb.co/0VMQqFsW/263shots-so.png" alt="119shots-so" width="800">
   <img src="https://i.ibb.co/ynMML55w/514shots-so.png" width="800" alt="Ticketing System">
-<!--   [https://i.ibb.co/YxkXq4S/119shots-so.png](https://ibb.co/xNjYRKb) -->
+<!--   [https://i.ibb.co/YxkXq4S/119shots-so.png](https://ibb.co/xNjYRKb) https://i.ibb.co/Gvfw3bkB/532shots-so.png -->
 </div>
 
 - **Multiple Ticket Types**: VIP, Regular, Student options
@@ -44,6 +100,7 @@ TicketKing is a comprehensive event ticketing platform that connects event organ
 ### 💳 Payment Processing
 <div align="center">
   <img src="https://i.ibb.co/Gf5zSTTf/989shots-so.png" width="800" alt="Payment Processing">
+  <img src="https://i.ibb.co/Gvfw3bkB/532shots-so.png" width="800" alt="Payment Processing">
 </div>
 
 - **Multiple Payment Methods**: Bkash, Nagad, Visa, Mastercard
