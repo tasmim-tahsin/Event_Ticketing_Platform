@@ -205,7 +205,7 @@ Project Maintainer - [Md Tasmim Al Tahsin](mailto:tahsinniyan@gmail.com)
 GitHub Profile - [@tahsinniyan](https://github.com/tasmim-tahsin)
 
 <p align="center">
-  <img src="https://i.imgur.com/JxQZ3Fj.png" width="200">
+  <img src="https://i.ibb.co/vCT0XVVB/830shots-so.png" width="200">
 </p>
 ```
 
