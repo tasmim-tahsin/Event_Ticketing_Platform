@@ -16,7 +16,7 @@ if(isset($_SESSION['user'])){
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-<nav x-data="{ isOpen: false }" class="relative backdrop-blur-[200px] shadow dark:bg-gray-800">
+<nav x-data="{ isOpen: false }" class="relative shadow dark:bg-gray-800">
   <div class="container mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Mobile menu button -->
       <button @click="isOpen = !isOpen" class="md:hidden text-gray-600 dark:text-gray-200 focus:outline-none">

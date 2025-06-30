@@ -42,7 +42,8 @@ if (isset($_GET['remove_ticket_id'])) {
 
 // Fetch tickets for this event
 $ticketsResult = mysqli_query($conn, "SELECT * FROM tickets WHERE event_id = $event_id");
-
+$tickets = mysqli_fetch_assoc($ticketsResult);
+$tqty=$tickets['quantity'];
 // Cart details
 $cart = $_SESSION['event_cart'][$event_id];
 $ticketDetails = [];
@@ -53,7 +54,7 @@ if (!empty($cart)) {
     $ticketQuery = mysqli_query($conn, "SELECT * FROM tickets WHERE id IN ($ticket_ids)");
     while ($ticket = mysqli_fetch_assoc($ticketQuery)) {
         $id = $ticket['id'];
-        $tqty=$ticket['quantity'];
+        // $tqty=$ticket['quantity'];
         $qty = $cart[$id];
         $ticket['selected_quantity'] = $qty;
         $ticket['total_price'] = $qty * $ticket['price'];
@@ -232,7 +233,7 @@ if (!empty($cart)) {
             </div>
           </div>
         <?php else: ?>
-          <div class="text-center py-8 text-gray-500">
+          <div class="text-center w-xl py-8 text-gray-500">
             <i class="fas fa-shopping-cart fa-2x mb-3"></i>
             <p>Your cart is empty</p>
           </div>
